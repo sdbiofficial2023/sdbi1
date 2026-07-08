@@ -17,10 +17,10 @@ export default function Gallery() {
         setItemsPerView(3);
       }
     };
-    
+
     // Initial check
     handleResize();
-    
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -71,7 +71,7 @@ export default function Gallery() {
         </h2>
 
         {/* Carousel */}
-        <div className="relative px-8 md:px-12">
+        <div className="relative px-12 md:px-14">
           {/* Navigation Buttons */}
           <button
             onClick={prev}
