@@ -2,49 +2,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect, useRef } from 'react';
-
-function Counter({ end, prefix = '', suffix = '' }: { end: number; prefix?: string; suffix?: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          let startTimestamp: number;
-          const duration = 2000;
-
-          const step = (timestamp: number) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-
-            const easeOut = progress * (2 - progress);
-            setCount(Math.floor(easeOut * end));
-
-            if (progress < 1) {
-              window.requestAnimationFrame(step);
-            } else {
-              setCount(end);
-            }
-          };
-          window.requestAnimationFrame(step);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [end]);
-
-  return (
-    <span ref={ref}>
-      {prefix}{count.toLocaleString('id-ID')}{suffix}
-    </span>
-  );
-}
+import { useState, useEffect } from 'react';
+import Counter from './Counter';
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -79,7 +38,17 @@ export default function Hero() {
   ];
 
   return (
-    <section className="bg-white pt-8 md:pt-12 pb-12 md:pb-20 overflow-hidden">
+    <section
+      className="relative pt-8 md:pt-12 pb-12 md:pb-20 overflow-hidden"
+      style={{
+        backgroundImage: `url('/images-background-hero/background-hero.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      {/* White overlay */}
+      <div className="absolute inset-0 bg-white/40 z-0" />
       <style>{`
         @keyframes drawLine {
           from { stroke-dashoffset: 150; }
@@ -137,7 +106,7 @@ export default function Hero() {
         }
       `}</style>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
           {/* Kolom Kiri - Content */}
           <div className="md:col-span-5 space-y-5 lg:space-y-6">

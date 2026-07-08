@@ -1,17 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import Counter from './Counter';
 
 export default function Portfolio() {
   const stats = [
-    { number: '+300%', label: 'Peningkatan Leads', color: 'text-[#F5821F]' },
-    { number: '+10.000', label: 'Alumni di seluruh Indonesia', color: 'text-white' },
-    { number: '40%', label: 'Efisiensi Biaya', color: 'text-[#D4A843]' },
+    { end: 300, prefix: '+', suffix: '%', label: 'Peningkatan Leads', color: 'text-[#D4A843]' },
+    { end: 10000, prefix: '+', suffix: '', label: 'Alumni di seluruh Indonesia', color: 'text-[#D4A843]' },
+    { end: 40, prefix: '', suffix: '%', label: 'Efisiensi Biaya', color: 'text-[#D4A843]' },
   ];
 
   const caseStudies = [
     {
-      logo: '/logos-portofolio/labschoollogo.png',
-      name: 'SMA LABSCHOOL JAKARTA',
+      logo: '/logos/sma-lab-jkt.png',
       result: 'Peningkatan Pendaftaran Siswa 200%',
       detail: 'Leads meningkat 250% dalam 6 bulan',
       resultColor: 'text-[#F5821F]',
@@ -19,15 +19,13 @@ export default function Portfolio() {
     },
     {
       logo: '/logos-portofolio/logopln-portofolio.png',
-      name: 'PLN',
       result: 'Training 1.000+ peserta',
       detail: 'Peningkatan kompetensi dan adopsi digital signifikan',
       resultColor: 'text-[#0A1E3F]',
       bgColor: 'bg-white',
     },
     {
-      logo: '/logos-portofolio/rs-permata-gunung-putri.png',
-      name: 'Rumah Sakit Permata Gunung Putri',
+      logo: '/logos/rs-permata-gunung-putri.png',
       result: '300% Peningkatan Pasien datang',
       detail: 'Leads meningkat 400% dalam 6 bulan',
       resultColor: 'text-[#F5821F]',
@@ -76,7 +74,7 @@ export default function Portfolio() {
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
                   <p className={`text-3xl md:text-4xl font-bold ${stat.color} mb-1`}>
-                    {stat.number}
+                    <Counter end={stat.end} prefix={stat.prefix} suffix={stat.suffix} />
                   </p>
                   <p className="text-xs md:text-sm text-gray-300 font-medium mt-2">
                     {stat.label}
@@ -92,18 +90,15 @@ export default function Portfolio() {
                   key={index}
                   className={`${study.bgColor} rounded-2xl p-6 hover:shadow-lg transition-all duration-300`}
                 >
-                  <div className="flex items-center justify-center mb-4 h-16">
+                  <div className="flex items-center justify-center mb-4 h-24">
                     <Image
                       src={study.logo}
-                      alt={study.name}
-                      width={80}
-                      height={80}
-                      className="h-12 w-auto object-contain"
+                      alt={study.result}
+                      width={160}
+                      height={120}
+                      className="h-20 w-auto object-contain"
                     />
                   </div>
-                  <p className="text-xs text-center text-[#0A1E3F] font-semibold uppercase tracking-wider mb-3">
-                    {study.name}
-                  </p>
                   <p className={`text-center font-bold text-base ${study.resultColor} mb-2 leading-snug`}>
                     {study.result}
                   </p>

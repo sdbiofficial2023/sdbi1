@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Services() {
   const services = [
     {
       title: 'Digital Marketing Management',
-      image: null,
+      image: '/images-layanan/digital-marketing.png',
       gradient: 'from-blue-600 to-blue-800',
       icon: '📊',
       tags: ['Strategy & Execution', 'Lead Generation'],
@@ -13,7 +14,7 @@ export default function Services() {
     },
     {
       title: 'SEO & AI Search Optimization',
-      image: null,
+      image: '/images-layanan/seo-ai.png',
       gradient: 'from-cyan-500 to-blue-600',
       icon: '🔍',
       tags: ['Search Engine Optimization', 'AI Search'],
@@ -22,7 +23,7 @@ export default function Services() {
     },
     {
       title: 'Digital Ads Management',
-      image: null,
+      image: '/images-layanan/digital-ads.png',
       gradient: 'from-red-500 to-orange-600',
       icon: '📢',
       tags: ['Meta Ads', 'TikTok Ads', 'Google Ads'],
@@ -31,7 +32,7 @@ export default function Services() {
     },
     {
       title: 'Corporate Training & Workshop',
-      image: null,
+      image: '/images-layanan/corporate-training.png',
       gradient: 'from-indigo-500 to-purple-600',
       icon: '🎓',
       tags: ['In-House Training', 'Online | Offline', 'Sertifikasi'],
@@ -40,7 +41,7 @@ export default function Services() {
     },
     {
       title: 'Business & Digital Consulting',
-      image: null,
+      image: '/images-layanan/business-digital.png',
       gradient: 'from-emerald-500 to-teal-600',
       icon: '💼',
       tags: ['Private Consulting', 'Project Based'],
@@ -49,7 +50,7 @@ export default function Services() {
     },
     {
       title: 'Website Development',
-      image: null,
+      image: '/images-layanan/website-development.png',
       gradient: 'from-violet-500 to-indigo-600',
       icon: '💻',
       tags: ['Custom Development', 'Mobile Friendly'],
@@ -58,7 +59,7 @@ export default function Services() {
     },
     {
       title: 'Speaker & Corporate Event',
-      image: null,
+      image: '/images-layanan/speaker-corporate.png',
       gradient: 'from-amber-500 to-orange-600',
       icon: '🎤',
       tags: ['Corporate Event', 'Online & Offline'],
@@ -67,7 +68,7 @@ export default function Services() {
     },
     {
       title: 'Program Masa Persiapan Pensiun (MPP)',
-      image: null,
+      image: '/images-layanan/program-masa.png',
       gradient: 'from-rose-500 to-pink-600',
       icon: '🏖️',
       tags: ['Business Learning Journey', 'Business Visit'],
@@ -93,13 +94,15 @@ export default function Services() {
               key={index}
               className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
-              {/* Image Area - Placeholder */}
-              <div className="relative h-44 bg-gray-200 flex items-center justify-center overflow-hidden">
-                {/* USER: Hapus komentar ini dan masukkan tag Image Next.js atau img biasa dengan gambar asli */}
-                <div className="text-center">
-                  <span className="text-4xl opacity-50 mb-2 block">{service.icon}</span>
-                  <span className="text-gray-500 text-xs font-semibold px-4">Ganti Gambar (Rekomendasi: 800x600px)</span>
-                </div>
+              {/* Image Area */}
+              <div className="relative h-44 bg-gray-100 overflow-hidden">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
               </div>
 
               {/* Content */}

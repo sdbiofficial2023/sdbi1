@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default function TrustedBy() {
   const partners = [
     { name: 'BKKBN', logo: '/logos/logo-bkkbn.png' },
-    { name: 'SMA Labschool Jakarta', logo: '/logos/labschoollogo.png' },
+    { name: 'SMA Labschool Jakarta', logo: '/logos/sma-lab-jkt.png' },
     { name: 'BPJS Ketenagakerjaan', logo: '/logos/bpjs-ketenagakerjaan.png' },
     { name: 'BPJS Kesehatan', logo: '/logos/bpjs-kesehatan-logo.png' },
     { name: 'PLN Icon Plus', logo: '/logos/pln-logo.png' },
@@ -19,7 +19,7 @@ export default function TrustedBy() {
 
   const row1 = partners.slice(0, 6);
   const row2 = partners.slice(6);
-  
+
   // Duplicate for seamless marquee
   const marqueeRow1 = [...row1, ...row1];
   const marqueeRow2 = [...row2, ...row2];
@@ -42,7 +42,7 @@ export default function TrustedBy() {
           animation: marqueeRight 30s linear infinite;
         }
       `}</style>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-8">
