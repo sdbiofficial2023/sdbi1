@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function TrustedBy() {
   const partners = [
-    { name: 'BKKBN', logo: '/logos/logo-bkkbn.png' },
+    { name: 'BKKBN', logo: '/logos/bkkbn-logo.png' },
     { name: 'SMA Labschool Jakarta', logo: '/logos/sma-lab-jkt.png' },
     { name: 'BPJS Ketenagakerjaan', logo: '/logos/bpjs-ketenagakerjaan.png' },
     { name: 'BPJS Kesehatan', logo: '/logos/bpjs-kesehatan-logo.png' },
@@ -67,6 +67,7 @@ export default function TrustedBy() {
                     width={140}
                     height={60}
                     className="max-w-full max-h-full object-contain mix-blend-multiply"
+                    style={{ width: 'auto', height: 'auto' }}
                   />
                 </div>
               ))}
@@ -85,6 +86,7 @@ export default function TrustedBy() {
                     width={140}
                     height={60}
                     className="max-w-full max-h-full object-contain mix-blend-multiply"
+                    style={{ width: 'auto', height: 'auto' }}
                   />
                 </div>
               ))}
