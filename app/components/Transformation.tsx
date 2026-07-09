@@ -1,11 +1,28 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Transformation() {
   // null = no modal, number = index of active video
   const [activeVideo, setActiveVideo] = useState<number | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [itemsPerView, setItemsPerView] = useState(4);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setItemsPerView(2);
+      } else if (window.innerWidth < 1024) {
+        setItemsPerView(3);
+      } else {
+        setItemsPerView(4);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const testimonials = [
     {
@@ -36,7 +53,135 @@ export default function Transformation() {
       thumbnail: '/thumbnails-transformation/Website SDBI (6).png',
       youtubeId: 'jzSsX9zFAJU',
     },
+    // Thumbnails 5–20
+    {
+      name: 'Cut Lisna',
+      role: '',
+      org: 'PLN UP 3 BANDA ACEH',
+      thumbnail: '/thumbnails-transformation/5.png',
+      youtubeId: 'oPQC7VS6tC0',
+    },
+    {
+      name: 'Andi Rizkullah',
+      role: '',
+      org: 'Allia Tour dan Hotel Ibis',
+      thumbnail: '/thumbnails-transformation/6.png',
+      youtubeId: 'IpvceBpqfLg',
+    },
+    {
+      name: 'Wahyu Haryadi',
+      role: '',
+      org: 'LSP MIGAS',
+      thumbnail: '/thumbnails-transformation/7.png',
+      youtubeId: 'oEfK41Z4qIY',
+    },
+    {
+      name: 'Rossiman',
+      role: '',
+      org: 'Lab School Cibubur',
+      thumbnail: '/thumbnails-transformation/8.png',
+      youtubeId: 'NR_DyCpA6nM',
+    },
+    {
+      name: 'Ibu Mira Restyawati',
+      role: '',
+      org: 'RS Permata Gunung Putri',
+      thumbnail: '/thumbnails-transformation/9.png',
+      youtubeId: 'Ay-Z8j63u3w',
+    },
+    {
+      name: 'Bapak Deden E Ariffan',
+      role: 'Kepala Pengembang',
+      org: 'Labschool Cibubur',
+      thumbnail: '/thumbnails-transformation/10.png',
+      youtubeId: 'VpRBG1k9-IA',
+    },
+    {
+      name: 'Gilang Gustiardi',
+      role: 'Digital Marketing',
+      org: 'Nashta Global Utama',
+      thumbnail: '/thumbnails-transformation/11.png',
+      youtubeId: 'AVXE9dQqPL0',
+    },
+    {
+      name: 'Redy Indra Wijaya',
+      role: '',
+      org: 'BPJS Ketenagakerjaan',
+      thumbnail: '/thumbnails-transformation/12.png',
+      youtubeId: 'GnpEP3F-Zas',
+    },
+    {
+      name: 'Ibu Rina',
+      role: 'Owner',
+      org: 'Orien Beauty',
+      thumbnail: '/thumbnails-transformation/13.png',
+      youtubeId: '8-TTtTO9sBI',
+    },
+    {
+      name: 'Pak Kusmanto',
+      role: '',
+      org: 'Koperasi Ababil Solution',
+      thumbnail: '/thumbnails-transformation/14.png',
+      youtubeId: '3gUoPl1DF2A',
+    },
+    {
+      name: 'Putri Anitasari',
+      role: '',
+      org: 'Pevesindo',
+      thumbnail: '/thumbnails-transformation/15.png',
+      youtubeId: 'lelRVSo8DwE',
+    },
+    {
+      name: 'Kak Muslim',
+      role: '',
+      org: 'Laz Rabbani',
+      thumbnail: '/thumbnails-transformation/16.png',
+      youtubeId: 'ynBaBmA2Tf8',
+    },
+    {
+      name: 'Ibu Isni',
+      role: '',
+      org: 'Bollen Isni',
+      thumbnail: '/thumbnails-transformation/17.png',
+      youtubeId: '_gsytAcoEGM',
+    },
+    {
+      name: 'Kak Ismi',
+      role: '',
+      org: 'PEVESINDO',
+      thumbnail: '/thumbnails-transformation/18.png',
+      youtubeId: 'Rfw5_M-4rxw',
+    },
+    {
+      name: 'Muhammad Al-Jundi',
+      role: '',
+      org: 'PEVESINDO',
+      thumbnail: '/thumbnails-transformation/19.png',
+      youtubeId: 'mCJer02WGpU',
+    },
+    {
+      name: 'Ruslan',
+      role: '',
+      org: 'Workshop Digital Bisnis Bersama Brand owner UMKM',
+      thumbnail: '/thumbnails-transformation/20.png',
+      youtubeId: 'uEZlEqeRNZY',
+    },
   ];
+
+  const maxSlide = Math.max(0, testimonials.length - itemsPerView);
+  const totalPages = Math.ceil(testimonials.length / itemsPerView);
+  const currentPage = Math.min(Math.floor(currentSlide / itemsPerView), totalPages - 1);
+
+  const prev = () => setCurrentSlide((s) => Math.max(0, s - itemsPerView));
+  const next = () => setCurrentSlide((s) => Math.min(maxSlide, s + itemsPerView));
+
+  // Fixed width for each card based on itemsPerView
+  const cardWidthClass =
+    itemsPerView === 2
+      ? 'w-[calc(50%-8px)]'
+      : itemsPerView === 3
+        ? 'w-[calc(33.333%-11px)]'
+        : 'w-[calc(25%-12px)]';
 
   return (
     <section className="relative pt-16 md:pt-24 pb-10 md:pb-16 overflow-hidden">
@@ -108,47 +253,86 @@ export default function Transformation() {
           </div>
         </div>
 
-        {/* Testimonial Thumbnail Cards */}
-        <div className="relative z-20 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 -mt-8 md:-mt-14">
-          {testimonials.map((person, index) => (
+        {/* Testimonial Thumbnail Carousel */}
+        <div className="relative z-20 -mt-8 md:-mt-14 px-12 md:px-14">
+          {/* Left Arrow Button */}
+          <button
+            onClick={prev}
+            disabled={currentSlide === 0}
+            className="absolute left-0 top-[45%] -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.1)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            aria-label="Slide sebelumnya"
+          >
+            <svg className="w-5 h-5 md:w-6 md:h-6 text-[#0A1E3F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          {/* Right Arrow Button */}
+          <button
+            onClick={next}
+            disabled={currentSlide >= maxSlide}
+            className="absolute right-0 top-[45%] -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.1)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            aria-label="Slide selanjutnya"
+          >
+            <svg className="w-5 h-5 md:w-6 md:h-6 text-[#0A1E3F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Cards Container */}
+          <div className="overflow-hidden py-4">
             <div
-              key={index}
-              className="group cursor-pointer"
-              onClick={() => setActiveVideo(index)}
+              className="flex gap-4 transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(calc(-${currentSlide * (100 / itemsPerView)}% - ${currentSlide * (16 / itemsPerView)}px))` }}
             >
-              {/* Thumbnail - fixed height for uniform grid alignment */}
-              <div className="relative rounded-2xl overflow-hidden aspect-[3/4] mb-4 shadow-lg">
-                <Image
-                  src={person.thumbnail}
-                  alt={`Testimoni ${person.name}`}
-                  fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-                {/* Play button overlay */}
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                  <div className="w-14 h-14 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/50 shadow-lg">
-                    <svg className="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
+              {testimonials.map((person, index) => (
+                <div
+                  key={index}
+                  className={`${cardWidthClass} flex-shrink-0 group cursor-pointer`}
+                  onClick={() => setActiveVideo(index)}
+                >
+                  {/* Thumbnail - fixed aspect ratio for uniform grid alignment */}
+                  <div className="relative rounded-2xl overflow-hidden aspect-[3/4] mb-4 shadow-lg">
+                    <Image
+                      src={person.thumbnail}
+                      alt={`Testimoni ${person.name}`}
+                      fill
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    />
+                    {/* Play button overlay */}
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                      <div className="w-14 h-14 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/50 shadow-lg">
+                        <svg className="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
+                  {/* Info */}
+                  <h4 className="text-gray-900 font-bold text-sm">{person.name}</h4>
+                  {person.role && <p className="text-gray-500 text-xs mt-0.5">{person.role}</p>}
+                  <p className="text-gray-400 text-xs font-medium">{person.org}</p>
                 </div>
-              </div>
-              {/* Info */}
-              <h4 className="text-gray-900 font-bold text-sm">{person.name}</h4>
-              <p className="text-gray-500 text-xs mt-0.5">{person.role}</p>
-              <p className="text-gray-400 text-xs font-medium">{person.org}</p>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
 
         {/* Pagination Dots */}
-        <div className="flex justify-center items-center gap-2 mt-12">
-          <button className="w-8 h-2.5 rounded-full bg-[#0A1E3F]" aria-label="Page 1" />
-          <button className="w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors" aria-label="Page 2" />
-          <button className="w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors" aria-label="Page 3" />
-          <button className="w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors" aria-label="Page 4" />
-          <button className="w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors" aria-label="Page 5" />
+        <div className="flex justify-center items-center gap-2 mt-8">
+          {Array.from({ length: totalPages }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentSlide(Math.min(i * itemsPerView, maxSlide))}
+              className={`rounded-full transition-all duration-300 ${
+                i === currentPage
+                  ? 'w-8 h-2.5 bg-[#0A1E3F]'
+                  : 'w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400'
+              }`}
+              aria-label={`Page ${i + 1}`}
+            />
+          ))}
         </div>
       </div>
 

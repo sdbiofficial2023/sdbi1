@@ -27,34 +27,34 @@ export default function Gallery() {
 
   const galleryItems = [
     {
-      title: 'Corporate Training',
-      image: '/images-gallery/gambar1.png',
-      description: 'Fast-track program untuk belajar dan berkarir sebagai digital marketer dengan fasilitas koneksi kerja seumur hidup.',
+      title: 'Kurasi Bisnis Digital untuk UMKM',
+      image: '/images-gallery/Website SDBI (1).png',
+      description: 'Workshop Sekolah Digital Bisnis Indonesia bertema "Kurasi Bisnis Digital: Agar Produk Layak Dipilih & Dibeli Konsumen", diikuti oleh 100 UMKM dari wilayah Jabodetabek.',
     },
     {
-      title: 'Workshop Digital Marketing',
-      image: '/images-gallery/gambar2.png',
-      description: 'Fast-track program untuk belajar dan berkarir sebagai digital marketer dengan fasilitas koneksi kerja seumur hidup.',
+      title: 'Corporate Training Website SEO & AI',
+      image: '/images-gallery/Website SDBI (2).png',
+      description: 'Pelatihan optimasi website berbasis SEO dan AI Search untuk tim Labschool Cibubur bersama Tim IT, Tim Creative dan Tim SEO internal Labschool.',
     },
     {
-      title: 'Seminar & Keynote',
-      image: '/images-gallery/gambar3.png',
-      description: 'Fast-track program untuk belajar dan berkarir sebagai digital marketer dengan fasilitas koneksi kerja seumur hidup.',
+      title: 'Pemberdayaan UMKM Bersama PT PLN (Persero)',
+      image: '/images-gallery/Website SDBI (3).png',
+      description: 'Melalui Program TJSL Museum Listrik dan Energi Baru (MLEB), Sekolah Digital Bisnis Indonesia membekali UMKM binaan PLN dengan strategi digital marketing, AI Search, dan transformasi digital untuk meningkatkan daya saing bisnis.',
     },
     {
-      title: 'Business Consulting',
-      image: '/images-gallery/gambar1.png',
-      description: 'Fast-track program untuk belajar dan berkarir sebagai digital marketer dengan fasilitas koneksi kerja seumur hidup.',
+      title: 'Kolaborasi PT PLN (Persero) dan SDBI di Aceh',
+      image: '/images-gallery/Website SDBI (4).png',
+      description: 'Program kolaborasi PT PLN (Persero) dan Sekolah Digital Bisnis Indonesia (SDBI) yang diikuti oleh lebih 100 Manager dan Pimpinan Cabang PLN di Aceh untuk memperkuat kompetensi digital marketing serta mendukung percepatan transformasi digital.',
     },
     {
-      title: 'Digital Ads Training',
-      image: '/images-gallery/gambar2.png',
-      description: 'Fast-track program untuk belajar dan berkarir sebagai digital marketer dengan fasilitas koneksi kerja seumur hidup.',
+      title: 'Digital Marketing KOL & SEO Training',
+      image: '/images-gallery/Website SDBI (5).png',
+      description: 'Kolaborasi Labschool Cibubur dan Sekolah Digital Bisnis Indonesia. Pelatihan digital marketing yang membahas strategi Key Opinion Leader (KOL), Search Engine Optimization (SEO), dan pengembangan brand digital untuk meningkatkan visibilitas, kredibilitas, serta performa pemasaran di era digital.',
     },
     {
-      title: 'SEO Workshop',
-      image: '/images-gallery/gambar3.png',
-      description: 'Fast-track program untuk belajar dan berkarir sebagai digital marketer dengan fasilitas koneksi kerja seumur hidup.',
+      title: 'Kolaborasi BKKBN bersama SDBI',
+      image: '/images-gallery/Website SDBI (6).png',
+      description: 'Program persiapan kurasi produk UPPKA untuk meningkatkan kualitas, inovasi, promosi, dan daya saing usaha melalui penguatan strategi bisnis di era ekosistem digital. Kegiatan ini diikuti oleh lebih dari 5.000 UMKM dari seluruh Indonesia dan diselenggarakan secara hybrid.',
     },
   ];
 
@@ -106,7 +106,7 @@ export default function Gallery() {
                 >
                   <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
                     {/* Image */}
-                    <div className="relative h-48 md:h-52 overflow-hidden bg-gray-100">
+                    <div className="relative h-60 md:h-72 overflow-hidden bg-gray-100">
                       <Image
                         src={item.image}
                         alt={`Galeri Kegiatan ${item.title}`}
