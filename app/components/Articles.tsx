@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Articles() {
@@ -10,7 +11,7 @@ export default function Articles() {
       title: '5 Tools AI yang Wajib Digunakan Setiap Tim Marketing pada 2025',
       excerpt:
         'Dari otomasi konten hingga analisis kompetitor real-time — inilah alat AI yang sudah digunakan tim marketing perusahaan terkemuka untuk efisiensi dan pertumbuhan.',
-      gradient: 'from-blue-600 to-indigo-700',
+      image: '/articles/Website SDBI (3).png',
       icon: '🤖',
     },
     {
@@ -21,7 +22,7 @@ export default function Articles() {
       title: 'Panduan Praktis AI SEO : Cara Muncul di ChatGPT Search dan Google AI Overview',
       excerpt:
         'Strategi step-by-step untuk mengoptimalkan konten Anda agar relevan di era pencarian berbasis AI — bukan hanya Google biasa, tetapi juga Perplexity dan Gemini.',
-      gradient: 'from-cyan-500 to-teal-600',
+      image: '/articles/Website SDBI (4).png',
       icon: '🔍',
     },
     {
@@ -32,7 +33,7 @@ export default function Articles() {
       title: 'Dari Awareness ke Revenue: Membangun Funnel Pemasaran yang Benar-Benar Bekerja',
       excerpt:
         'Banyak bisnis membangun funnel yang terlihat lengkap di atas kertas, tetapi tidak menghasilkan konversinya. Inilah letak kesalahannya dan cara memperbaikinya.',
-      gradient: 'from-orange-500 to-red-600',
+      image: '/articles/Website SDBI (5).png',
       icon: '📈',
     },
   ];
@@ -54,11 +55,14 @@ export default function Articles() {
               key={index}
               className="group cursor-pointer"
             >
-              {/* Image placeholder */}
+              {/* Image */}
               <div className="bg-gray-200 h-52 rounded-2xl mb-4 relative overflow-hidden flex flex-col items-center justify-center border border-gray-300">
-                {/* USER: Ganti div ini dengan tag Image thumbnail artikel */}
-                <span className="text-4xl opacity-40 mb-2">{article.icon}</span>
-                <span className="text-xs text-gray-500 font-semibold">Ganti Thumbnail<br/>(Rekomen: 800x600)</span>
+                <Image
+                  src={article.image}
+                  alt={article.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
                 
                 {/* Category badge */}
                 <span className={`absolute top-4 left-4 ${article.categoryColor} text-white text-xs font-semibold px-3 py-1 rounded-full z-10 shadow-sm`}>

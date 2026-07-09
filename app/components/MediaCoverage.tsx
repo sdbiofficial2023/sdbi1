@@ -59,10 +59,6 @@ export default function MediaCoverage() {
               key={index}
               className="text-center px-4 py-3 border-r border-gray-200 last:border-r-0 flex flex-col items-center justify-center min-w-[120px]"
             >
-              {/* USER: Ganti div ini dengan tag Image logo media */}
-              <div className="w-full h-12 bg-gray-100 rounded flex items-center justify-center text-[10px] text-gray-400 font-semibold mb-2 border border-dashed border-gray-300">
-                Ganti Logo
-              </div>
               <p className="font-bold text-[#0A1E3F] text-lg leading-tight">{media.name}</p>
               <p className="text-xs text-[#6B7280]">{media.sub}</p>
             </div>

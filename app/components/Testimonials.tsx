@@ -1,6 +1,17 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
+
+// 6 avatar images from /avatar-testimonials/
+const avatarImages = [
+  '/avatar-testimonials/Website SDBI (1).png',
+  '/avatar-testimonials/Website SDBI (2).png',
+  '/avatar-testimonials/Website SDBI (7).png',
+  '/avatar-testimonials/Website SDBI (8).png',
+  '/avatar-testimonials/Website SDBI (9).png',
+  '/avatar-testimonials/Website SDBI (10).png',
+];
 
 export default function Testimonials() {
   const tabs = [
@@ -17,44 +28,44 @@ export default function Testimonials() {
     name: string;
     industry: string;
     quote: string;
-    avatar: string;
+    avatarIndex: number;
   }>> = {
     0: [
       {
         name: 'Labschool Cibubur',
         industry: 'EDUCATION',
         quote: '"SDBI membantu kami mengelola strategi digital marketing secara lebih terarah, mulai dari konten hingga kampanye digital untuk meningkatkan awareness dan engagement calon peserta didik."',
-        avatar: '🏫',
+        avatarIndex: 0,
       },
       {
         name: 'Shuka Grill Pekalongan',
         industry: 'FOOD & BEVERAGE',
         quote: '"Strategi konten dan promosi digital yang dijalankan SDBI membantu meningkatkan visibilitas brand serta memperkuat interaksi dengan pelanggan."',
-        avatar: '🍽️',
+        avatarIndex: 1,
       },
       {
         name: 'RS Permata Gunung Putri',
         industry: 'HEALTHCARE & BEAUTY',
         quote: '"SDBI membantu kami menyampaikan informasi layanan rumah sakit secara lebih efektif melalui strategi digital marketing yang tepat sasaran."',
-        avatar: '🏥',
+        avatarIndex: 2,
       },
       {
         name: 'Trupastry',
         industry: 'FOOD & BEVERAGE',
         quote: '"SDBI membantu membangun komunikasi brand yang lebih konsisten sehingga produk kami lebih dikenal dan mudah diterima oleh target pasar."',
-        avatar: '🧁',
+        avatarIndex: 3,
       },
       {
         name: 'Visa Optik',
         industry: 'RETAIL',
         quote: '"SDBI membantu kami menyampaikan informasi layanan rumah sakit secara lebih efektif melalui strategi digital marketing yang tepat sasaran."',
-        avatar: '👓',
+        avatarIndex: 4,
       },
       {
         name: 'PEVESINDO',
         industry: 'INDUSTRIAL, MANUFACTURING & RETAIL',
         quote: '"SDBI membantu mengembangkan strategi digital marketing yang lebih terstruktur untuk mendukung pertumbuhan bisnis dan peningkatan brand visibility."',
-        avatar: '🏭',
+        avatarIndex: 5,
       },
     ],
     1: [
@@ -62,19 +73,37 @@ export default function Testimonials() {
         name: 'Tech Startup Indonesia',
         industry: 'TECHNOLOGY',
         quote: '"Dengan optimasi SEO dari SDBI, website kami berhasil naik ke halaman pertama Google untuk keyword-keyword utama bisnis kami."',
-        avatar: '💻',
+        avatarIndex: 0,
       },
       {
         name: 'Klinik Kecantikan Glow',
         industry: 'HEALTHCARE & BEAUTY',
         quote: '"Traffic organik website kami meningkat 400% setelah menerapkan strategi SEO dan AI Search yang direkomendasikan SDBI."',
-        avatar: '✨',
+        avatarIndex: 1,
       },
       {
         name: 'PT Maju Sejahtera',
         industry: 'MANUFACTURING',
         quote: '"SDBI membantu kami memahami dan memanfaatkan AI Search untuk meningkatkan visibilitas bisnis di era digital."',
-        avatar: '🏢',
+        avatarIndex: 2,
+      },
+      {
+        name: 'PT Digital Nusantara',
+        industry: 'TECHNOLOGY',
+        quote: '"Strategi AI Search dari SDBI membantu kami tampil di berbagai platform pencarian AI dengan hasil yang optimal."',
+        avatarIndex: 3,
+      },
+      {
+        name: 'Apotek Sehat Jaya',
+        industry: 'HEALTHCARE',
+        quote: '"Optimasi SEO lokal dari SDBI membuat apotek kami mudah ditemukan oleh calon pelanggan di sekitar lokasi."',
+        avatarIndex: 4,
+      },
+      {
+        name: 'CV Karya Digital',
+        industry: 'CREATIVE AGENCY',
+        quote: '"SDBI membantu kami membangun strategi konten SEO yang meningkatkan ranking website secara konsisten."',
+        avatarIndex: 5,
       },
     ],
     2: [
@@ -82,19 +111,37 @@ export default function Testimonials() {
         name: 'CV Berkah Mandiri',
         industry: 'RETAIL',
         quote: '"Konsultasi bisnis bersama SDBI membantu kami menemukan strategi yang tepat untuk meningkatkan revenue secara signifikan."',
-        avatar: '🛍️',
+        avatarIndex: 0,
       },
       {
         name: 'Resto Nusantara',
         industry: 'FOOD & BEVERAGE',
         quote: '"Pendampingan bisnis dari SDBI sangat membantu dalam menyusun strategi pemasaran yang lebih efektif dan terukur."',
-        avatar: '🍜',
+        avatarIndex: 1,
       },
       {
         name: 'Salon Modern',
         industry: 'BEAUTY',
         quote: '"SDBI membantu kami merancang model bisnis yang lebih scalable dan efisien."',
-        avatar: '💇',
+        avatarIndex: 2,
+      },
+      {
+        name: 'PT Sinar Abadi',
+        industry: 'MANUFACTURING',
+        quote: '"Konsultasi strategis dari SDBI memberikan perspektif baru dalam menghadapi persaingan pasar yang semakin ketat."',
+        avatarIndex: 3,
+      },
+      {
+        name: 'Koperasi Maju Bersama',
+        industry: 'FINANCE',
+        quote: '"SDBI membantu kami mengoptimalkan operasional bisnis dan meningkatkan efisiensi manajemen keuangan."',
+        avatarIndex: 4,
+      },
+      {
+        name: 'Toko Bangunan Jaya',
+        industry: 'RETAIL',
+        quote: '"Dengan bimbingan SDBI, kami berhasil memperluas jangkauan pasar melalui strategi pemasaran digital yang tepat."',
+        avatarIndex: 5,
       },
     ],
     3: [
@@ -102,19 +149,37 @@ export default function Testimonials() {
         name: 'BPJS Ketenagakerjaan',
         industry: 'GOVERNMENT',
         quote: '"Workshop yang diberikan SDBI sangat aplikatif dan langsung bisa diterapkan oleh tim kami."',
-        avatar: '🏛️',
+        avatarIndex: 0,
       },
       {
         name: 'Bank Indonesia',
         industry: 'FINANCE',
         quote: '"Training digital marketing dari SDBI membantu meningkatkan kompetensi tim kami secara signifikan."',
-        avatar: '🏦',
+        avatarIndex: 1,
       },
       {
         name: 'Telkom Indonesia',
         industry: 'TELECOMMUNICATIONS',
         quote: '"Materi workshop yang diberikan Coach Yoso sangat relevan dengan kebutuhan transformasi digital kami."',
-        avatar: '📡',
+        avatarIndex: 2,
+      },
+      {
+        name: 'Kementerian Kominfo',
+        industry: 'GOVERNMENT',
+        quote: '"Pelatihan yang diberikan SDBI membantu ASN kami memahami pentingnya digitalisasi dalam pelayanan publik."',
+        avatarIndex: 3,
+      },
+      {
+        name: 'PT Astra International',
+        industry: 'AUTOMOTIVE',
+        quote: '"Workshop SDBI memberikan wawasan baru tentang pemanfaatan teknologi digital untuk efisiensi bisnis."',
+        avatarIndex: 4,
+      },
+      {
+        name: 'Universitas Indonesia',
+        industry: 'EDUCATION',
+        quote: '"Training dari SDBI sangat membantu dosen dan staf kami dalam mengembangkan kompetensi digital."',
+        avatarIndex: 5,
       },
     ],
     4: [
@@ -122,19 +187,37 @@ export default function Testimonials() {
         name: 'PT Pertamina',
         industry: 'ENERGY',
         quote: '"Program MPP dari SDBI sangat membantu karyawan kami mempersiapkan masa pensiun dengan baik."',
-        avatar: '⛽',
+        avatarIndex: 0,
       },
       {
         name: 'PT PLN',
         industry: 'UTILITIES',
         quote: '"Kunjungan bisnis dalam program MPP memberikan inspirasi nyata untuk memulai usaha setelah pensiun."',
-        avatar: '⚡',
+        avatarIndex: 1,
       },
       {
         name: 'Kementerian BUMN',
         industry: 'GOVERNMENT',
         quote: '"SDBI memberikan pembekalan yang komprehensif untuk para calon pensiunan kami."',
-        avatar: '🏢',
+        avatarIndex: 2,
+      },
+      {
+        name: 'PT Garuda Indonesia',
+        industry: 'AVIATION',
+        quote: '"Program persiapan pensiun SDBI sangat terstruktur dan memberikan motivasi bagi karyawan kami."',
+        avatarIndex: 3,
+      },
+      {
+        name: 'PT Pos Indonesia',
+        industry: 'LOGISTICS',
+        quote: '"SDBI membantu karyawan kami menemukan peluang bisnis baru sebagai bekal masa pensiun."',
+        avatarIndex: 4,
+      },
+      {
+        name: 'PT Kereta Api Indonesia',
+        industry: 'TRANSPORTATION',
+        quote: '"Materi MPP dari SDBI sangat praktis dan relevan dengan kebutuhan calon pensiunan di era digital."',
+        avatarIndex: 5,
       },
     ],
   };
@@ -177,9 +260,14 @@ export default function Testimonials() {
             >
               {/* Avatar & Name */}
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 rounded-full bg-gray-200 flex items-center justify-center text-xl overflow-hidden relative shrink-0 border border-gray-300">
-                  {/* USER: Ganti div ini dengan tag Image foto orang */}
-                  <span className="opacity-40">{item.avatar}</span>
+                <div className="w-14 h-14 rounded-full overflow-hidden relative shrink-0 border-2 border-[#D4A843]">
+                  <Image
+                    src={avatarImages[item.avatarIndex]}
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                    sizes="56px"
+                  />
                 </div>
                 <div>
                   <h4 className="font-bold text-sm text-[#0A1E3F]">{item.name}</h4>

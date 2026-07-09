@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`relative z-50 bg-white pt-4 md:pt-6 transition-shadow duration-300 ${
+      className={`relative z-50 bg-white transition-shadow duration-300 ${
         scrolled ? 'shadow-md' : 'shadow-none'
       }`}
     >
@@ -73,9 +73,9 @@ export default function Navbar() {
       `}</style>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-start">
+        <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center pt-2">
+          <div className="flex-shrink-0 flex items-center">
             <Link
               href="/"
               className="relative block w-[200px] md:w-[260px] lg:w-[320px] h-[50px] md:h-[70px] lg:h-[85px] overflow-hidden"
@@ -91,7 +91,7 @@ export default function Navbar() {
           </div>
 
           {/* Menu Desktop & CTA */}
-          <div className="hidden md:flex items-center pt-2 md:pt-4">
+          <div className="hidden md:flex items-center">
             <div className="flex items-center space-x-6">
               {menuItems.map((item) => (
                 <Link
