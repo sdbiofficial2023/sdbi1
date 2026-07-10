@@ -191,6 +191,7 @@ export default function Transformation() {
           src="/bg-transformation/Website SDBI (1).png"
           alt="Background pattern"
           fill
+          sizes="100vw"
           className="object-cover"
           quality={90}
         />

@@ -84,6 +84,7 @@ export default function Navbar() {
                 src="/images/logo-sdbi.png"
                 alt="Sekolah Digital Bisnis Indonesia"
                 fill
+                sizes="(max-width: 768px) 200px, (max-width: 1024px) 260px, 320px"
                 className="object-cover object-center mix-blend-multiply"
                 priority
               />
