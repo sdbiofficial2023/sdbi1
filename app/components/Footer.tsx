@@ -110,21 +110,21 @@ export default function Footer() {
           </div>
 
           {/* Column 4 - Map */}
-<div>
-  <h3 className="text-sm font-bold uppercase tracking-wider mb-6">LOKASI KAMI</h3>
-  <div className="rounded-xl overflow-hidden border border-white/10 h-48 shadow-lg">
-    <iframe
-      src="https://maps.google.com/maps?q=Sekolah+Digital+Bisnis+Indonesia+(SDBI+Digital+Marketing+Agency),+Graha+Multipiranti,+Jl.+Radin+Inten+II+No.2-8,+Duren+Sawit,+Jakarta+Timur+13440&output=embed"
-      width="100%"
-      height="100%"
-      style={{ border: 0, filter: 'grayscale(20%) contrast(1.1)' }}
-      allowFullScreen=""
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-      title="Lokasi Kantor SDBI"
-    />
-  </div>
-</div>
+          <div>
+            <h3 className="text-sm font-bold uppercase tracking-wider mb-6">LOKASI KAMI</h3>
+            <div className="rounded-xl overflow-hidden border border-white/10 h-48 shadow-lg">
+              <iframe
+                src="https://maps.google.com/maps?q=Sekolah+Digital+Bisnis+Indonesia+(SDBI+Digital+Marketing+Agency),+Graha+Multipiranti,+Jl.+Radin+Inten+II+No.2-8,+Duren+Sawit,+Jakarta+Timur+13440&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: 'grayscale(20%) contrast(1.1)' }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Lokasi Kantor SDBI"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -133,7 +133,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-xs">
-              ©2025 Sekolah Digital Bisnis Indonesia (SDBI). Hak cipta dilindungi.
+              ©2026 Sekolah Digital Bisnis Indonesia (SDBI). Hak cipta dilindungi.
             </p>
             <div className="flex gap-6">
               <Link href="#" className="text-gray-400 hover:text-white transition-colors text-xs">

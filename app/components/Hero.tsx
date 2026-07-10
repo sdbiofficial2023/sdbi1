@@ -183,21 +183,21 @@ export default function Hero() {
 
               {/* Floating Card */}
               <div
-                className={`absolute -bottom-4 -right-4 md:bottom-2 md:right-2 bg-white rounded-xl shadow-2xl p-4 min-w-[160px] md:min-w-[180px] z-10 border border-gray-100 ${mounted ? 'reveal' : 'opacity-0'}`}
+                className={`absolute bottom-2 right-2 bg-white rounded-xl shadow-2xl p-2.5 md:p-4 min-w-[120px] md:min-w-[180px] z-10 border border-gray-100 ${mounted ? 'reveal' : 'opacity-0'}`}
                 style={{ animationDelay: '0.6s' }}
               >
                 <div className="text-left relative">
-                  <p className="text-[10px] md:text-xs text-[#6B7280] font-semibold mb-1">
+                  <p className="text-[8px] md:text-xs text-[#6B7280] font-semibold mb-0.5 md:mb-1">
                     Business Growth
                   </p>
-                  <div className="text-[#25D366] text-2xl md:text-3xl font-extrabold flex items-center gap-1 mb-1">
-                    <Counter end={300} prefix="+" suffix="%" /> <span className="text-lg">↑</span>
+                  <div className="text-[#25D366] text-lg md:text-3xl font-extrabold flex items-center gap-1 mb-0.5 md:mb-1">
+                    <Counter end={300} prefix="+" suffix="%" /> <span className="text-sm md:text-lg">↑</span>
                   </div>
-                  <p className="text-[9px] md:text-[10px] text-[#6B7280] mb-2">
+                  <p className="text-[7px] md:text-[10px] text-[#6B7280] mb-1 md:mb-2">
                     Avg. Increase in Leads
                   </p>
                   {/* Mini sparkline */}
-                  <svg className="w-full h-8 mt-1" viewBox="0 0 100 30" preserveAspectRatio="none">
+                  <svg className="w-full h-5 md:h-8 mt-1" viewBox="0 0 100 30" preserveAspectRatio="none">
                     <defs>
                       <linearGradient id="gradient-hero" x1="0%" y1="0%" x2="0%" y2="100%">
                         <stop offset="0%" stopColor="#0A1E3F" stopOpacity="0.2" />
@@ -221,7 +221,7 @@ export default function Hero() {
                   </svg>
 
                   {/* Orange circle icon */}
-                  <div className="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 bg-[#F5821F] w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg border-4 border-white">
+                  <div className="hidden md:flex absolute md:-bottom-8 md:-right-8 bg-[#F5821F] w-10 h-10 md:w-12 md:h-12 rounded-full items-center justify-center shadow-lg border-4 border-white">
                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
                     </svg>

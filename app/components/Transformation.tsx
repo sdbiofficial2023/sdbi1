@@ -184,9 +184,9 @@ export default function Transformation() {
         : 'w-[calc(25%-12px)]';
 
   return (
-    <section className="relative pt-16 md:pt-24 pb-10 md:pb-16 overflow-hidden">
-      {/* Background Image - only covers top ~60% */}
-      <div className="absolute inset-x-0 top-0 h-[60%] md:h-[65%] z-0">
+    <section className="relative pt-10 md:pt-24 pb-10 md:pb-16 overflow-hidden">
+      {/* Background Image - only covers top portion */}
+      <div className="absolute inset-x-0 top-0 h-[78%] md:h-[65%] z-0">
         <Image
           src="/bg-transformation/Website SDBI (1).png"
           alt="Background pattern"
@@ -199,7 +199,7 @@ export default function Transformation() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Section: Left text + Right image */}
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-start mb-0">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-8 lg:gap-16 items-start mb-0">
           {/* Left - Title & Button */}
           <div className="pt-4">
             <h2 className="text-3xl md:text-4xl lg:text-[2.6rem] font-bold leading-tight mb-4">
@@ -226,7 +226,7 @@ export default function Transformation() {
           </div>
 
           {/* Right - High-Ticket Closing + Image */}
-          <div className="relative min-h-[22rem] md:min-h-[26rem] lg:min-h-[30rem]">
+          <div className="relative md:min-h-[26rem] lg:min-h-[30rem]">
             {/* Text block */}
             <div className="relative z-10 pt-0">
               <h3 className="text-4xl md:text-5xl lg:text-[3.5rem] font-[900] text-[#0A1E3F] leading-[1.05] mb-3 tracking-tight">
@@ -241,14 +241,14 @@ export default function Transformation() {
                 &ldquo;Mengapa Produk Mahal Tidak Butuh &apos;Diskon&apos;, Tapi Butuh &apos;Edukasi&apos;.&rdquo;
               </p>
             </div>
-            {/* Coach Yoso Image - positioned so built-in arrow points to quote text */}
-            <div className="absolute right-[-1rem] md:right-[-2rem] lg:right-[-1rem] top-[-2rem] md:top-[-1rem] w-[60%] md:w-[65%] lg:w-[62%] h-[calc(100%+2rem)] z-[5]">
+            {/* Coach Yoso Image - stacked below text on mobile; on md+ positioned so built-in arrow points to quote text */}
+            <div className="relative w-[68%] aspect-[1366/1614] mx-auto -mt-2 md:mx-0 md:absolute md:mt-0 md:right-[-2rem] lg:right-[-1rem] md:top-[-1rem] md:w-[65%] lg:w-[62%] md:aspect-auto md:h-[calc(100%+2rem)] z-[5]">
               <Image
                 src="/image-transformation/image.png"
                 alt="Coach Yoso - High Ticket Closing"
                 fill
-                className="object-contain object-right-top"
-                sizes="(max-width: 768px) 60vw, (max-width: 1024px) 38vw, 32vw"
+                className="object-contain object-top md:object-right-top"
+                sizes="(max-width: 768px) 70vw, (max-width: 1024px) 38vw, 32vw"
               />
             </div>
           </div>
@@ -326,11 +326,10 @@ export default function Transformation() {
             <button
               key={i}
               onClick={() => setCurrentSlide(Math.min(i * itemsPerView, maxSlide))}
-              className={`rounded-full transition-all duration-300 ${
-                i === currentPage
-                  ? 'w-8 h-2.5 bg-[#0A1E3F]'
-                  : 'w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400'
-              }`}
+              className={`rounded-full transition-all duration-300 ${i === currentPage
+                ? 'w-8 h-2.5 bg-[#0A1E3F]'
+                : 'w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400'
+                }`}
               aria-label={`Page ${i + 1}`}
             />
           ))}

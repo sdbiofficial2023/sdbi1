@@ -10,6 +10,7 @@ interface MarqueeItem {
 interface MarqueeBarProps {
   items?: MarqueeItem[];
   speed?: number; // seconds for one full loop
+  className?: string;
 }
 
 const defaultItems: MarqueeItem[] = [
@@ -27,12 +28,12 @@ const defaultItems: MarqueeItem[] = [
   },
 ];
 
-export default function MarqueeBar({ items = defaultItems, speed = 28 }: MarqueeBarProps) {
+export default function MarqueeBar({ items = defaultItems, speed = 28, className = '' }: MarqueeBarProps) {
   // duplicate items so the loop is seamless
   const loopItems = [...items, ...items];
 
   return (
-    <div className="relative z-[60] bg-[#0A1E3F] text-white overflow-hidden">
+    <div className={`relative z-[60] bg-[#0A1E3F] text-white overflow-hidden ${className}`}>
       <style>{`
         @keyframes marqueeScroll {
           from { transform: translateX(0); }

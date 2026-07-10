@@ -1,5 +1,4 @@
-import MarqueeBar from './components/MarqueeBar'
-import Navbar from './components/Navbar';
+import StickyHeader from './components/StickyHeader';
 import Hero from './components/Hero';
 import TrustedBy from './components/TrustedBy';
 import WhyChooseUs from './components/WhyChooseUs';
@@ -19,10 +18,7 @@ import Footer from './components/Footer';
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
-      <div className="sticky top-0 z-50">
-        <MarqueeBar />
-        <Navbar />
-      </div>
+      <StickyHeader />
       <Hero />
       <TrustedBy />
       <WhyChooseUs />

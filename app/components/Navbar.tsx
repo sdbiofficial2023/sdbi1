@@ -4,7 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
-export default function Navbar() {
+interface NavbarProps {
+  className?: string;
+  onOpenChange?: (open: boolean) => void;
+}
+
+export default function Navbar({ className = '', onOpenChange }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -16,6 +21,11 @@ export default function Navbar() {
     { label: 'Hubungi Kami', href: '#hubungi-kami' },
   ];
 
+  const toggleMobile = (next: boolean) => {
+    setMobileOpen(next);
+    onOpenChange?.(next);
+  };
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
@@ -23,20 +33,23 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileOpen]);
+
   return (
     <nav
       className={`relative z-50 bg-white transition-shadow duration-300 ${
         scrolled ? 'shadow-md' : 'shadow-none'
-      }`}
+      } ${className}`}
     >
       <style>{`
         @keyframes fadeInDown {
           from { opacity: 0; transform: translateY(-8px); }
           to { opacity: 1; transform: translateY(0); }
-        }
-        .mobile-link {
-          opacity: 0;
-          animation: fadeInDown 0.35s ease-out forwards;
         }
         .nav-link {
           position: relative;
@@ -58,22 +71,14 @@ export default function Navbar() {
           transition: transform 0.3s ease, opacity 0.2s ease;
           transform-origin: center;
         }
-        .mobile-menu-wrapper {
-          display: grid;
-          grid-template-rows: 0fr;
-          transition: grid-template-rows 0.35s ease;
-        }
-        .mobile-menu-wrapper.open {
-          grid-template-rows: 1fr;
-        }
-        .mobile-menu-inner {
-          overflow: hidden;
-          min-height: 0;
+        .mobile-menu-item {
+          opacity: 0;
+          animation: fadeInDown 0.35s ease-out forwards;
         }
       `}</style>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
+        <div className="relative z-[80] flex justify-between items-center py-2 md:py-3">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link
@@ -115,8 +120,8 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden mt-2 p-2 rounded-lg hover:bg-gray-100 transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            onClick={() => toggleMobile(!mobileOpen)}
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
@@ -147,34 +152,42 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        <div className={`mobile-menu-wrapper ${mobileOpen ? 'open' : ''}`}>
-          <div className="mobile-menu-inner">
-            <div className="md:hidden bg-white border-t border-gray-100 mt-4 py-4 space-y-1">
-              {menuItems.map((item, index) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="mobile-link block px-4 py-3 text-gray-700 hover:text-[#0A1E3F] hover:bg-gray-50 rounded-lg font-medium text-sm transition-colors"
-                  style={{ animationDelay: mobileOpen ? `${index * 0.05}s` : '0s' }}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
+        {/* Mobile full-screen menu */}
+        <div
+          className={`md:hidden fixed inset-0 z-[70] bg-white transition-opacity duration-300 ease-out ${
+            mobileOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+          }`}
+        >
+          <div className="flex flex-col h-full px-6 pt-24 pb-10 overflow-y-auto">
+            <div className="flex-1">
+              {mobileOpen &&
+                menuItems.map((item, index) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="mobile-menu-item block py-5 text-2xl font-semibold text-[#0A1E3F] border-b border-dashed border-gray-300 hover:text-[#F5821F] transition-colors"
+                    style={{ animationDelay: `${index * 0.06}s` }}
+                    onClick={() => toggleMobile(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+            </div>
+
+            {mobileOpen && (
               <div
-                className="mobile-link px-4 pt-2"
-                style={{ animationDelay: mobileOpen ? `${menuItems.length * 0.05}s` : '0s' }}
+                className="mobile-menu-item pt-6"
+                style={{ animationDelay: `${menuItems.length * 0.06}s` }}
               >
                 <Link
                   href="#konsultasi"
-                  className="block bg-[#0A1E3F] text-white px-6 py-3 rounded-xl font-medium text-center hover:bg-[#0A1E3F]/90 transition-colors text-sm shadow-md"
-                  onClick={() => setMobileOpen(false)}
+                  className="block bg-[#0A1E3F] text-white px-6 py-3.5 rounded-xl font-medium text-center hover:bg-[#0A1E3F]/90 transition-colors text-sm shadow-md"
+                  onClick={() => toggleMobile(false)}
                 >
                   Konsultasi Sekarang
                 </Link>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

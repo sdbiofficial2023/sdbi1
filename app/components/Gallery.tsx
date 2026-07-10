@@ -56,7 +56,7 @@ export default function Gallery() {
           {/* Navigation Buttons */}
           <button
             onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.1)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors"
+            className="absolute left-0 top-[45%] -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.1)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors"
             aria-label="Slide sebelumnya"
           >
             <svg className="w-5 h-5 md:w-6 md:h-6 text-[#0A1E3F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,7 +66,7 @@ export default function Gallery() {
 
           <button
             onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.1)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors"
+            className="absolute right-0 top-[45%] -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.1)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors"
             aria-label="Slide selanjutnya"
           >
             <svg className="w-5 h-5 md:w-6 md:h-6 text-[#0A1E3F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -87,9 +87,9 @@ export default function Gallery() {
                   key={index}
                   className="w-full flex-shrink-0"
                 >
-                  <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
+                  <div className="bg-white rounded-2xl overflow-hidden shadow-sm h-[30rem] sm:h-[32rem] md:h-[40rem] flex flex-col">
                     {/* Image */}
-                    <div className="relative h-72 sm:h-80 md:h-[28rem] overflow-hidden bg-gray-100">
+                    <div className="relative h-72 sm:h-80 md:h-[28rem] flex-shrink-0 overflow-hidden bg-gray-100">
                       <Image
                         src={item.image}
                         alt={`Galeri Kegiatan ${item.title}`}
@@ -98,8 +98,8 @@ export default function Gallery() {
                         sizes="(max-width: 768px) 100vw, 80vw"
                       />
                     </div>
-                    <div className="p-5 md:p-6">
-                      <p className="text-sm text-[#6B7280] leading-relaxed">
+                    <div className="flex-1 min-h-0 overflow-hidden p-5 md:p-6">
+                      <p className="text-sm text-[#6B7280] leading-relaxed line-clamp-4">
                         {item.description}
                       </p>
                     </div>
@@ -108,22 +108,22 @@ export default function Gallery() {
               ))}
             </div>
           </div>
+        </div>
 
-          {/* Dot Indicators */}
-          <div className="flex justify-center gap-2 mt-6">
-            {galleryItems.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                  currentSlide === index
-                    ? 'bg-[#0A1E3F] scale-125'
-                    : 'bg-[#0A1E3F]/25 hover:bg-[#0A1E3F]/50'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
+        {/* Dot Indicators */}
+        <div className="flex justify-center gap-2 mt-6">
+          {galleryItems.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                currentSlide === index
+                  ? 'bg-[#0A1E3F] scale-125'
+                  : 'bg-[#0A1E3F]/25 hover:bg-[#0A1E3F]/50'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
