@@ -2,7 +2,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 
 interface NavbarProps {
   className?: string;
@@ -12,6 +13,9 @@ interface NavbarProps {
 export default function Navbar({ className = '', onOpenChange }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
+  const [closeBtnPos, setCloseBtnPos] = useState({ top: 16, right: 16 });
 
   const menuItems = [
     { label: 'Beranda', href: '#beranda' },
@@ -34,23 +38,32 @@ export default function Navbar({ className = '', onOpenChange }: NavbarProps) {
   }, []);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
     };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    if (mobileOpen && hamburgerRef.current) {
+      const rect = hamburgerRef.current.getBoundingClientRect();
+      setCloseBtnPos({
+        top: rect.top,
+        right: window.innerWidth - rect.right,
+      });
+    }
+  }, [mobileOpen]);
+
   return (
     <nav
-      className={`relative z-50 bg-white transition-shadow duration-300 ${
-        scrolled ? 'shadow-md' : 'shadow-none'
-      } ${className}`}
+      className={`relative z-[65] bg-white transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'shadow-none'
+        } ${className}`}
     >
       <style>{`
-        @keyframes fadeInDown {
-          from { opacity: 0; transform: translateY(-8px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
         .nav-link {
           position: relative;
         }
@@ -66,14 +79,6 @@ export default function Navbar({ className = '', onOpenChange }: NavbarProps) {
         }
         .nav-link:hover::after {
           width: 100%;
-        }
-        .hamburger-line {
-          transition: transform 0.3s ease, opacity 0.2s ease;
-          transform-origin: center;
-        }
-        .mobile-menu-item {
-          opacity: 0;
-          animation: fadeInDown 0.35s ease-out forwards;
         }
       `}</style>
 
@@ -120,65 +125,56 @@ export default function Navbar({ className = '', onOpenChange }: NavbarProps) {
 
           {/* Mobile hamburger */}
           <button
+            ref={hamburgerRef}
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
             onClick={() => toggleMobile(!mobileOpen)}
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
-            <svg className="w-6 h-6 text-[#0A1E3F]" viewBox="0 0 24 24" fill="none">
-              <line
-                className="hamburger-line"
-                x1="4" y1="6" x2="20" y2="6"
-                stroke="currentColor" strokeWidth="2" strokeLinecap="round"
-                style={{
-                  transform: mobileOpen ? 'translateY(6px) rotate(45deg)' : 'translateY(0) rotate(0)',
-                }}
-              />
-              <line
-                className="hamburger-line"
-                x1="4" y1="12" x2="20" y2="12"
-                stroke="currentColor" strokeWidth="2" strokeLinecap="round"
-                style={{ opacity: mobileOpen ? 0 : 1 }}
-              />
-              <line
-                className="hamburger-line"
-                x1="4" y1="18" x2="20" y2="18"
-                stroke="currentColor" strokeWidth="2" strokeLinecap="round"
-                style={{
-                  transform: mobileOpen ? 'translateY(-6px) rotate(-45deg)' : 'translateY(0) rotate(0)',
-                }}
-              />
-            </svg>
+            {mobileOpen ? (
+              <svg className="w-6 h-6 text-[#0A1E3F]" viewBox="0 0 24 24" fill="none">
+                <line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6 text-[#0A1E3F]" viewBox="0 0 24 24" fill="none">
+                <line x1="4" y1="6" x2="20" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <line x1="4" y1="18" x2="20" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            )}
           </button>
         </div>
 
         {/* Mobile full-screen menu */}
-        <div
-          className={`md:hidden fixed inset-0 z-[70] bg-white transition-opacity duration-300 ease-out ${
-            mobileOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
-          }`}
-        >
-          <div className="flex flex-col h-full px-6 pt-24 pb-10 overflow-y-auto">
-            <div className="flex-1">
-              {mobileOpen &&
-                menuItems.map((item, index) => (
+        {mounted && mobileOpen && createPortal(
+          <div className="md:hidden fixed inset-0 z-[9999] bg-white/70 backdrop-blur-md">
+            <button
+              className="fixed p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              style={{ top: closeBtnPos.top, right: closeBtnPos.right }}
+              onClick={() => toggleMobile(false)}
+              aria-label="Close menu"
+            >
+              <svg className="w-6 h-6 text-[#0A1E3F]" viewBox="0 0 24 24" fill="none">
+                <line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </button>
+            <div className="flex flex-col h-full px-6 pt-28 pb-10 overflow-y-auto">
+              <div className="flex-1 flex flex-col gap-10">
+                {menuItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="mobile-menu-item block py-5 text-2xl font-semibold text-[#0A1E3F] border-b border-dashed border-gray-300 hover:text-[#F5821F] transition-colors"
-                    style={{ animationDelay: `${index * 0.06}s` }}
+                    className="inline-block w-fit pb-1.5 text-2xl font-bold text-[#0A1E3F] border-b-2 border-dashed border-gray-300 hover:text-[#F5821F] hover:border-[#F5821F] transition-colors"
                     onClick={() => toggleMobile(false)}
                   >
                     {item.label}
                   </Link>
                 ))}
-            </div>
+              </div>
 
-            {mobileOpen && (
-              <div
-                className="mobile-menu-item pt-6"
-                style={{ animationDelay: `${menuItems.length * 0.06}s` }}
-              >
+              <div className="pt-6">
                 <Link
                   href="#konsultasi"
                   className="block bg-[#0A1E3F] text-white px-6 py-3.5 rounded-xl font-medium text-center hover:bg-[#0A1E3F]/90 transition-colors text-sm shadow-md"
@@ -187,9 +183,10 @@ export default function Navbar({ className = '', onOpenChange }: NavbarProps) {
                   Konsultasi Sekarang
                 </Link>
               </div>
-            )}
-          </div>
-        </div>
+            </div>
+          </div>,
+          document.body
+        )}
       </div>
     </nav>
   );
