@@ -18,14 +18,14 @@ export default function PartnerBadges() {
             {partners.map((partner, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center h-10 md:h-14"
+                className="relative flex items-center justify-center h-10 md:h-14"
               >
                 <Image
                   src={partner.logo}
                   alt={partner.name}
-                  width={150}
-                  height={56}
-                  style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '100%' }}
+                  fill
+                  sizes="150px"
+                  className="object-contain"
                 />
               </div>
             ))}

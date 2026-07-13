@@ -39,7 +39,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative pt-[130px] md:pt-[160px] pb-12 md:pb-20 overflow-hidden"
+      className="relative pt-[70px] md:pt-[100px] pb-12 md:pb-20 overflow-hidden"
       style={{
         backgroundImage: `url('/images-background-hero/background-hero.png')`,
         backgroundSize: 'cover',
@@ -107,7 +107,7 @@ export default function Hero() {
       `}</style>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-center">
           {/* Kolom Kiri - Content */}
           <div className="md:col-span-5 space-y-5 lg:space-y-6">
             {/* Label */}

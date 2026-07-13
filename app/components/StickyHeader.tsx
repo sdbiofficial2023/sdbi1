@@ -15,6 +15,13 @@ export default function StickyHeader() {
     const handleScroll = () => {
       if (mobileMenuOpen) return;
 
+      // Keep the header always visible on desktop; only auto-hide on mobile.
+      if (window.innerWidth >= 768) {
+        setHidden(false);
+        lastScrollY.current = window.scrollY;
+        return;
+      }
+
       const currentScrollY = window.scrollY;
       const scrollingDown = currentScrollY > lastScrollY.current;
 
