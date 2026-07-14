@@ -43,8 +43,14 @@ export default function CTAForm() {
     sumber: '',
   });
 
+  const [errors, setErrors] = useState<{ nama?: string; email?: string; phone?: string; layanan?: string }>({});
+
   const [countryOpen, setCountryOpen] = useState(false);
   const countryRef = useRef<HTMLDivElement>(null);
+  const namaRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const phoneRef = useRef<HTMLInputElement>(null);
+  const layananRef = useRef<HTMLSelectElement>(null);
   const selectedCountry =
     countries.find((c) => c.iso2 === formData.countryCode) ?? countries.find((c) => c.iso2 === 'ID')!;
 
@@ -65,8 +71,27 @@ export default function CTAForm() {
     const nama = formData.nama.trim();
     const email = formData.email.trim();
     const phoneDigits = formData.phone.replace(/\D/g, '').replace(/^0+/, '');
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-    if (!nama || !email || !phoneDigits || !formData.layanan) {
+    const newErrors: typeof errors = {};
+    if (!nama) newErrors.nama = 'Nama lengkap wajib diisi.';
+    if (!email) newErrors.email = 'Email wajib diisi.';
+    else if (!emailValid) newErrors.email = 'Format email tidak valid.';
+    if (!phoneDigits) newErrors.phone = 'Nomor HP wajib diisi.';
+    if (!formData.layanan) newErrors.layanan = 'Pilih salah satu pelayanan.';
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) {
+      const firstInvalidRef = newErrors.nama
+        ? namaRef
+        : newErrors.email
+          ? emailRef
+          : newErrors.phone
+            ? phoneRef
+            : layananRef;
+      firstInvalidRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      firstInvalidRef.current?.focus();
       return;
     }
 
@@ -119,39 +144,47 @@ export default function CTAForm() {
 
             {/* Right - Form */}
             <div className="min-w-0 bg-white p-8 md:p-10 lg:p-12 rounded-t-3xl md:rounded-t-none md:rounded-r-3xl flex flex-col justify-center">
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} noValidate className="space-y-5">
                 {/* Nama */}
                 <div className="relative">
                   <input
+                    ref={namaRef}
                     type="text"
                     placeholder="Nama Lengkap"
                     value={formData.nama}
-                    onChange={(e) => setFormData({ ...formData, nama: e.target.value })}
-                    className="w-full border-b-2 border-gray-200 focus:border-[#0A1E3F] py-3 px-1 text-sm outline-none transition-colors placeholder:text-gray-400"
-                    required
+                    onChange={(e) => {
+                      setFormData({ ...formData, nama: e.target.value });
+                      if (errors.nama) setErrors({ ...errors, nama: undefined });
+                    }}
+                    className={`w-full border-b-2 ${errors.nama ? 'border-red-400' : 'border-gray-200'} focus:border-[#0A1E3F] py-3 px-1 text-sm outline-none transition-colors placeholder:text-gray-400`}
                   />
                   <svg className="absolute right-2 top-3 w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
+                  {errors.nama && <p className="mt-1 text-xs text-red-500">{errors.nama}</p>}
                 </div>
 
                 {/* Email */}
                 <div className="relative">
                   <input
+                    ref={emailRef}
                     type="email"
                     placeholder="Masukkan Email"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full border-b-2 border-gray-200 focus:border-[#0A1E3F] py-3 px-1 text-sm outline-none transition-colors placeholder:text-gray-400"
-                    required
+                    onChange={(e) => {
+                      setFormData({ ...formData, email: e.target.value });
+                      if (errors.email) setErrors({ ...errors, email: undefined });
+                    }}
+                    className={`w-full border-b-2 ${errors.email ? 'border-red-400' : 'border-gray-200'} focus:border-[#0A1E3F] py-3 px-1 text-sm outline-none transition-colors placeholder:text-gray-400`}
                   />
                   <svg className="absolute right-2 top-3 w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
+                  {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
                 </div>
 
                 {/* Phone */}
-                <div className="relative flex items-center border-b-2 border-gray-200 focus-within:border-[#0A1E3F] transition-colors">
+                <div className={`relative flex items-center border-b-2 ${errors.phone ? 'border-red-400' : 'border-gray-200'} focus-within:border-[#0A1E3F] transition-colors`}>
                   <div className="relative shrink-0" ref={countryRef}>
                     <button
                       type="button"
@@ -203,26 +236,33 @@ export default function CTAForm() {
                     )}
                   </div>
                   <input
+                    ref={phoneRef}
                     type="tel"
                     inputMode="numeric"
                     placeholder="8123456789"
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/[^\d]/g, '') })}
+                    onChange={(e) => {
+                      setFormData({ ...formData, phone: e.target.value.replace(/[^\d]/g, '') });
+                      if (errors.phone) setErrors({ ...errors, phone: undefined });
+                    }}
                     className="flex-1 py-3 px-1 text-sm outline-none placeholder:text-gray-400 border-none"
-                    required
                   />
                   <svg className="w-5 h-5 text-gray-300 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </div>
+                {errors.phone && <p className="-mt-3 text-xs text-red-500">{errors.phone}</p>}
 
                 {/* Dropdown - Layanan */}
                 <div className="relative">
                   <select
+                    ref={layananRef}
                     value={formData.layanan}
-                    onChange={(e) => setFormData({ ...formData, layanan: e.target.value })}
-                    className="w-full border-b-2 border-gray-200 focus:border-[#0A1E3F] py-3 px-1 text-sm outline-none transition-colors text-gray-400 bg-transparent appearance-none"
-                    required
+                    onChange={(e) => {
+                      setFormData({ ...formData, layanan: e.target.value });
+                      if (errors.layanan) setErrors({ ...errors, layanan: undefined });
+                    }}
+                    className={`w-full border-b-2 ${errors.layanan ? 'border-red-400' : 'border-gray-200'} focus:border-[#0A1E3F] py-3 px-1 text-sm outline-none transition-colors text-gray-400 bg-transparent appearance-none`}
                   >
                     <option value="">Pilih Pelayanan Sekolah Digital Bisnis Indonesia</option>
                     <option value="digital-marketing">Digital Marketing Management</option>
@@ -237,6 +277,7 @@ export default function CTAForm() {
                   <svg className="absolute right-2 top-3 w-5 h-5 text-gray-300 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
+                  {errors.layanan && <p className="mt-1 text-xs text-red-500">{errors.layanan}</p>}
                 </div>
 
                 {/* Dropdown - Harapan */}
