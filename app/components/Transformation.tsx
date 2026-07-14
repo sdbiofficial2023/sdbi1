@@ -29,28 +29,28 @@ export default function Transformation() {
       name: 'Bu Dewi',
       role: 'Manager Marketing',
       org: 'RS Permata Gunung Putri',
-      thumbnail: '/thumbnails-transformation/Website SDBI (3).png',
+      thumbnail: '/thumbnails-transformation/1.png',
       youtubeId: 'uPoc4hfkJYA',
     },
     {
       name: 'Kak Rendi',
       role: 'Tim Troopers BPJS',
       org: 'BPJS Ketenagakerjaan',
-      thumbnail: '/thumbnails-transformation/Website SDBI (4).png',
+      thumbnail: '/thumbnails-transformation/2.png',
       youtubeId: 'oPQC7VS6tC0',
     },
     {
       name: 'Kak Eka',
       role: 'Tim Digital Marketing',
       org: 'Digital Executive | Sinarmas Land',
-      thumbnail: '/thumbnails-transformation/Website SDBI (5).png',
+      thumbnail: '/thumbnails-transformation/3.png',
       youtubeId: '7JDA2oJ_CQc',
     },
     {
       name: 'Dokter-dokter',
       role: 'Visual & UI/UX Design',
       org: '| UI/UX Designer | RS Permata',
-      thumbnail: '/thumbnails-transformation/Website SDBI (6).png',
+      thumbnail: '/thumbnails-transformation/4.png',
       youtubeId: 'jzSsX9zFAJU',
     },
     // Thumbnails 5–20
@@ -244,7 +244,7 @@ export default function Transformation() {
             {/* Coach Yoso Image - stacked below text on mobile; on md+ fills the space below the quote down to the thumbnails */}
             <div className="relative w-[56%] aspect-[1366/1614] mx-auto mt-4 md:mx-0 md:absolute md:mt-0 md:left-[3.5rem] lg:left-[1.5rem] md:top-[6rem] lg:top-[6.5rem] md:bottom-[3rem] lg:bottom-0 md:w-[40%] lg:w-[36%] md:aspect-auto z-[5]">
               <Image
-                src="/image-transformation/image.png"
+                src="/images-transformation/image.png"
                 alt="Coach Yoso - High Ticket Closing"
                 fill
                 className="object-contain object-bottom"

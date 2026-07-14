@@ -2,12 +2,12 @@ import Image from 'next/image';
 
 export default function PartnerBadges() {
   const partners = [
-    { name: 'Google Partner', logo: '/badge-layanan/badge-google1.png' },
-    { name: 'Google Certified', logo: '/badge-layanan/badge-google2.png' },
-    { name: 'Meta Business Partners', logo: '/badge-layanan/meta-badge.png' },
-    { name: 'TikTok Marketing Partners', logo: '/badge-layanan/tiktok-badge.png' },
-    { name: 'BNSP', logo: '/badge-layanan/bnsp-badge.png' },
-    { name: 'OSS', logo: '/badge-layanan/oss-badge.png' },
+    { name: 'Google Partner', logo: '/logos-partner-badges/badge-google1.png' },
+    { name: 'Google Certified', logo: '/logos-partner-badges/badge-google2.png' },
+    { name: 'Meta Business Partners', logo: '/logos-partner-badges/meta-badge.png' },
+    { name: 'TikTok Marketing Partners', logo: '/logos-partner-badges/tiktok-badge.png' },
+    { name: 'BNSP', logo: '/logos-partner-badges/bnsp-badge.png' },
+    { name: 'OSS', logo: '/logos-partner-badges/oss-badge.png' },
   ];
 
   return (

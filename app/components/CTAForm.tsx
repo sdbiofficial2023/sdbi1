@@ -132,7 +132,7 @@ export default function CTAForm() {
               {/* People collage image */}
               <div className="relative w-full mt-2">
                 <Image
-                  src="/image-cta/Website SDBI (3).png"
+                  src="/ctaform-image/Website SDBI (3).png"
                   alt="Alumni Sekolah Digital Bisnis Indonesia"
                   width={600}
                   height={400}
@@ -219,9 +219,8 @@ export default function CTAForm() {
                               setFormData({ ...formData, countryCode: c.iso2 });
                               setCountryOpen(false);
                             }}
-                            className={`w-full flex items-center gap-2 px-3 py-2 text-sm text-left hover:bg-gray-50 ${
-                              c.iso2 === formData.countryCode ? 'bg-gray-50' : ''
-                            }`}
+                            className={`w-full flex items-center gap-2 px-3 py-2 text-sm text-left hover:bg-gray-50 ${c.iso2 === formData.countryCode ? 'bg-gray-50' : ''
+                              }`}
                           >
                             <img
                               src={`https://flagcdn.com/${c.iso2.toLowerCase()}.svg`}

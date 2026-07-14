@@ -18,7 +18,7 @@ export default function MediaCoverage() {
       title: 'Bank Indonesia Kolaborasi dengan BKKBN Beri Edukasi Keuangan Inklusif ke Masyarakat',
       quote: 'Kolaborasi ini diawali dalam acara bertajuk "Edukasi Keuangan Inklusif, Perlindungan Konsumen, dan Pemasaran Digital untuk Pemberdayaan Ekonomi Keluarga" yang berlangsung di Sheraton Tunjungan Plaza Surabaya.',
       gradient: 'from-red-500 to-red-700',
-      image: '/media-coverage/675e57c6dd04d-bi-dan-bkkbn-sukses-menyelenggarakan-acara-bertajuk-edukasi-keuangan-inklusif-perlindungan-konsumen-dan-pemasaran-digital-untuk-pemberdayaan-ekonomi-keluarga_990_557.webp',
+      image: '/images-mediacoverage/675e57c6dd04d-bi-dan-bkkbn-sukses-menyelenggarakan-acara-bertajuk-edukasi-keuangan-inklusif-perlindungan-konsumen-dan-pemasaran-digital-untuk-pemberdayaan-ekonomi-keluarga_990_557.webp',
       link: 'https://www.tvonenews.com/berita/nasional/278402-bank-indonesia-kolaborasi-dengan-bkkbn-beri-edukasi-keuangan-inklusif-ke-masyarakat?page=all',
     },
     {
@@ -27,7 +27,7 @@ export default function MediaCoverage() {
       title: 'Yoso Lukito Berkolaborasi dengan BPJS Ketenagakerjaan Jabar: Tingkatkan Kompetensi Digital Marketing di Era Digital',
       quote: 'Dalam sesi yang dinantikan tersebut, Coach Yoso Lukito founder Sekolah Digital Bisnis Indonesia, seorang Google Certified Digital Marketing Expert, hadir sebagai salah satu pembicara dalam acara "Social Media Winning".',
       gradient: 'from-blue-500 to-blue-700',
-      image: '/media-coverage/serba-serbi_183556_big.webp',
+      image: '/images-mediacoverage/serba-serbi_183556_big.webp',
       link: 'https://www.mnctrijaya.com/news/detail/69657/yoso-lukito-berkolaborasi-dengan-bpjs-ketenagakerjaan-jabar-tingkatkan-kompetensi-digital',
     },
     {
@@ -36,7 +36,7 @@ export default function MediaCoverage() {
       title: 'Kolaborasi Yoso Lukito Sekolah Digital Bisnis Indonesia (SDBI) Bersama KPMI: Strategi Pemasaran Digital untuk Para Pebisnis',
       quote: '"Kami berusaha memberikan wawasan yang aplikatif dan mudah dipahami, sehingga para Muslimat dapat meraih peluang bisnis digital yang lebih besar di era kompetisi global ini."',
       gradient: 'from-amber-500 to-orange-700',
-      image: '/media-coverage/IMG-20241221-WA0059.jpg',
+      image: '/images-mediacoverage/IMG-20241221-WA0059.jpg',
       link: 'https://wartaekonomi.co.id/read553732/kolaborasi-yoso-lukito-sekolah-digital-bisnis-indonesia-sdbi-bersama-kpmi-strategi-pemasaran-digital-untuk-para-pebisnis',
     },
   ];

@@ -41,7 +41,7 @@ export default function Hero() {
     <section
       className="relative pt-[70px] md:pt-[100px] pb-12 md:pb-20 overflow-hidden"
       style={{
-        backgroundImage: `url('/images-background-hero/background-hero.png')`,
+        backgroundImage: `url('/bg-hero/background-hero.png')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -172,7 +172,7 @@ export default function Hero() {
                 style={{ animationDelay: '0.2s' }}
               >
                 <Image
-                  src="/images/hero-team.png"
+                  src="/hero-images/hero-team.png"
                   alt="SDBI Team - Digital Marketing Experts"
                   width={600}
                   height={450}

@@ -27,7 +27,7 @@ export default function Footer() {
           <div className="md:col-span-1">
             <div className="mb-6 bg-white inline-block px-4 py-1 rounded-xl shadow-sm">
               <Image
-                src="/images/logo-sdbi.png"
+                src="/logos-footer/logo-sdbi-putih.png"
                 alt="Sekolah Digital Bisnis Indonesia"
                 width={250}
                 height={100}
