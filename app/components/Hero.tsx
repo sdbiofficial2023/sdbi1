@@ -2,18 +2,9 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 import Counter from './Counter';
 
 export default function Hero() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    // trigger entrance animations after mount
-    const t = setTimeout(() => setMounted(true), 50);
-    return () => clearTimeout(t);
-  }, []);
-
   const stats = [
     {
       end: 500,
@@ -39,6 +30,7 @@ export default function Hero() {
 
   return (
     <section
+      id="beranda"
       className="relative pt-[70px] md:pt-[100px] pb-12 md:pb-20 overflow-hidden"
       style={{
         backgroundImage: `url('/bg-hero/background-hero.png')`,
@@ -112,7 +104,7 @@ export default function Hero() {
           <div className="md:col-span-5 space-y-5 lg:space-y-6">
             {/* Label */}
             <div
-              className={`flex items-center space-x-2 ${mounted ? 'reveal' : 'opacity-0'}`}
+              className="flex items-center space-x-2 reveal"
               style={{ animationDelay: '0.05s' }}
             >
               <span className="relative flex w-1.5 h-1.5">
@@ -126,7 +118,7 @@ export default function Hero() {
 
             {/* Headline */}
             <h1
-              className={`text-[1.75rem] md:text-3xl lg:text-4xl xl:text-[2.5rem] font-bold leading-[1.15] tracking-tight ${mounted ? 'reveal' : 'opacity-0'}`}
+              className="text-[1.75rem] md:text-3xl lg:text-4xl xl:text-[2.5rem] font-bold leading-[1.15] tracking-tight reveal"
               style={{ animationDelay: '0.15s' }}
             >
               <span className="text-[#F5821F] whitespace-nowrap">Revenue Growth</span>{' '}
@@ -139,7 +131,7 @@ export default function Hero() {
 
             {/* Subheadline */}
             <p
-              className={`text-[13px] md:text-[14px] leading-[1.7] max-w-[420px] ${mounted ? 'reveal' : 'opacity-0'}`}
+              className="text-[13px] md:text-[14px] leading-[1.7] max-w-[420px] reveal"
               style={{ animationDelay: '0.3s' }}
             >
               <strong className="text-black font-bold">Untuk Perusahaan, Institusi, dan Organisasi di Indonesia</strong>
@@ -149,7 +141,7 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div
-              className={`flex flex-row flex-wrap gap-3 md:gap-4 pt-2 ${mounted ? 'reveal' : 'opacity-0'}`}
+              className="flex flex-row flex-wrap gap-3 md:gap-4 pt-2 reveal"
               style={{ animationDelay: '0.45s' }}
             >
               <Link
@@ -171,7 +163,7 @@ export default function Hero() {
           <div className="md:col-span-7 space-y-12">
             <div className="relative">
               <div
-                className={`relative rounded-3xl overflow-hidden shadow-2xl ${mounted ? 'reveal-scale' : 'opacity-0'}`}
+                className="relative rounded-3xl overflow-hidden shadow-2xl reveal-scale"
                 style={{ animationDelay: '0.2s' }}
               >
                 <Image
@@ -186,7 +178,7 @@ export default function Hero() {
 
               {/* Floating Card */}
               <div
-                className={`absolute bottom-2 right-2 bg-white rounded-xl shadow-2xl p-2 md:p-3 min-w-[90px] md:min-w-[140px] z-10 border border-gray-100 ${mounted ? 'reveal' : 'opacity-0'}`}
+                className="absolute bottom-2 right-2 bg-white rounded-xl shadow-2xl p-2 md:p-3 min-w-[90px] md:min-w-[140px] z-10 border border-gray-100 reveal"
                 style={{ animationDelay: '0.6s' }}
               >
                 <div className="text-left relative">
@@ -238,7 +230,7 @@ export default function Hero() {
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className={`text-center ${mounted ? 'reveal' : 'opacity-0'}`}
+                  className="text-center reveal"
                   style={{ animationDelay: `${0.7 + index * 0.1}s` }}
                 >
                   <p className="text-2xl md:text-3xl lg:text-[2.5rem] font-bold text-[#0A1E3F] mb-1">

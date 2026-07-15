@@ -131,6 +131,7 @@ export default function Services() {
                 <Link
                   href="https://wa.me/6281234567890"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-[#25D366] hover:bg-[#20BD5A] text-white text-center py-2.5 rounded-lg font-bold text-sm transition-colors w-full"
                 >
                   <span className="flex items-center justify-center gap-2">

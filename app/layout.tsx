@@ -9,8 +9,27 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sdbi.co.id"),
   title: "SDBI - Sekolah Digital Bisnis Indonesia | Digital Marketing Agency",
-  description: "Revenue Growth & Digital Transformation Partner untuk Perusahaan, Institusi, dan Organisasi di Indonesia.",
+  description:
+    "Revenue Growth & Digital Transformation Partner untuk Perusahaan, Institusi, dan Organisasi di Indonesia.",
+  openGraph: {
+    title: "SDBI - Sekolah Digital Bisnis Indonesia",
+    description:
+      "Revenue Growth & Digital Transformation Partner untuk Perusahaan, Institusi, dan Organisasi di Indonesia.",
+    url: "https://sdbi.co.id",
+    siteName: "SDBI",
+    images: [{ url: "/hero-images/hero-team.png", width: 1200, height: 630 }],
+    locale: "id_ID",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SDBI - Sekolah Digital Bisnis Indonesia",
+    description:
+      "Revenue Growth & Digital Transformation Partner untuk Perusahaan, Institusi, dan Organisasi di Indonesia.",
+    images: ["/hero-images/hero-team.png"],
+  },
 };
 
 export default function RootLayout({
@@ -20,9 +39,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="id"
       className={`${poppins.variable} font-sans h-full antialiased scroll-smooth`}
-      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

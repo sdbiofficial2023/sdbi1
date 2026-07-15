@@ -16,9 +16,9 @@ export default function WhyChooseUs() {
     },
     {
       number: '03',
-      title: 'Berpengalaman Menangani Beragam Industri',
+      title: 'Pendekatan Berbasis Data & Hasil Terukur',
       description:
-        'Mendampingi perusahaan, institusi, dan organisasi dalam pengembangan bisnis dan transformasi digital.',
+        'Setiap strategi dirancang berdasarkan data dan diukur secara transparan, sehingga Anda dapat melihat dampak nyata dari setiap langkah yang diambil.',
       numColor: 'bg-orange-100 text-[#0A1E3F]',
     },
     {

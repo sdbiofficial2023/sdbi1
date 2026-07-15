@@ -156,7 +156,7 @@ export default function Navbar({ className = '', onOpenChange }: NavbarProps) {
 
         {/* Mobile full-screen menu */}
         {mounted && mobileOpen && createPortal(
-          <div className="lg:hidden fixed inset-0 z-[9999] bg-white/70 backdrop-blur-md">
+          <div className="lg:hidden fixed inset-0 z-[9999] bg-white">
             <button
               className="fixed p-2 rounded-lg hover:bg-gray-100 transition-colors"
               style={{ top: closeBtnPos.top, right: closeBtnPos.right }}
