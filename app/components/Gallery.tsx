@@ -25,7 +25,7 @@ export default function Gallery() {
   const galleryItems = [
     {
       title: 'Kurasi Bisnis Digital untuk UMKM',
-      image: '/images-gallery/Website-SDBI-1.png',
+      image: '/images-gallery/image.jpeg',
       description: 'Workshop Sekolah Digital Bisnis Indonesia bertema "Kurasi Bisnis Digital: Agar Produk Layak Dipilih & Dibeli Konsumen", diikuti oleh 100 UMKM dari wilayah Jabodetabek.',
     },
     {
@@ -174,8 +174,8 @@ export default function Gallery() {
               key={i}
               onClick={() => setCurrentSlide(Math.min(i * itemsPerView, maxSlide))}
               className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${currentPage === i
-                  ? 'bg-[#0A1E3F] scale-125'
-                  : 'bg-[#0A1E3F]/25 hover:bg-[#0A1E3F]/50'
+                ? 'bg-[#0A1E3F] scale-125'
+                : 'bg-[#0A1E3F]/25 hover:bg-[#0A1E3F]/50'
                 }`}
               aria-label={`Go to page ${i + 1}`}
             />

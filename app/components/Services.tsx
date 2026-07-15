@@ -32,7 +32,7 @@ export default function Services() {
     },
     {
       title: 'Corporate Training & Workshop (MSA)',
-      image: '/images-layanan/corporate-training.png',
+      image: '/images-layanan/training-corporate.jpeg',
       gradient: 'from-indigo-500 to-purple-600',
       icon: '🎓',
       tags: ['In-House Training', 'Online | Offline', 'Sertifikasi'],
@@ -59,7 +59,7 @@ export default function Services() {
     },
     {
       title: 'Speaker & Corporate Event',
-      image: '/images-layanan/speaker-corporate.png',
+      image: '/images-layanan/speaker.jpeg',
       gradient: 'from-amber-500 to-orange-600',
       icon: '🎤',
       tags: ['Corporate Event', 'Online & Offline'],

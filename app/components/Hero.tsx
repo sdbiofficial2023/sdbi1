@@ -1,8 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import Counter from './Counter';
+import HeroImageSlider from './HeroImageSlider';
 
 export default function Hero() {
   const stats = [
@@ -166,14 +166,7 @@ export default function Hero() {
                 className="relative rounded-3xl overflow-hidden shadow-2xl reveal-scale"
                 style={{ animationDelay: '0.2s' }}
               >
-                <Image
-                  src="/hero-images/hero-team.png"
-                  alt="SDBI Team - Digital Marketing Experts"
-                  width={600}
-                  height={450}
-                  className="w-full h-auto object-cover"
-                  priority
-                />
+                <HeroImageSlider />
               </div>
 
               {/* Floating Card */}

@@ -91,18 +91,18 @@ export default function Navbar({ className = '', onOpenChange }: NavbarProps) {
       `}</style>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative z-[80] flex justify-between items-center py-2 md:py-3">
+        <div className="relative z-[80] flex justify-between items-center py-1.5 md:py-2">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link
               href="/"
-              className="relative block w-[200px] md:w-[260px] lg:w-[320px] h-[50px] md:h-[70px] lg:h-[85px] overflow-hidden"
+              className="relative block w-[170px] md:w-[220px] lg:w-[260px] h-[42px] md:h-[58px] lg:h-[70px] overflow-hidden"
             >
               <Image
                 src="/logos-navbar/logo-sdbi-new.png"
                 alt="Sekolah Digital Bisnis Indonesia"
                 fill
-                sizes="(max-width: 768px) 200px, (max-width: 1024px) 260px, 320px"
+                sizes="(max-width: 768px) 170px, (max-width: 1024px) 220px, 260px"
                 className="object-cover object-center mix-blend-multiply"
                 priority
               />
