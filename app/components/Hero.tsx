@@ -121,7 +121,7 @@ export default function Hero() {
               className="text-[1.75rem] md:text-3xl lg:text-4xl xl:text-[2.5rem] font-bold leading-[1.15] tracking-tight reveal"
               style={{ animationDelay: '0.15s' }}
             >
-              <span className="text-[#F5821F] whitespace-nowrap">Revenue Growth</span>{' '}
+              <span className="text-[#F5821F] whitespace-nowrap">Your Strategic Growth</span>{' '}
               <span className="text-[#0A1E3F]">&</span>
               <br />
               <span className="text-[#0A1E3F] whitespace-nowrap">Digital Transformation</span>
@@ -136,7 +136,7 @@ export default function Hero() {
             >
               <strong className="text-black font-bold">Untuk Perusahaan, Institusi, dan Organisasi di Indonesia</strong>
               <br />
-              <span className="text-[#6B7280]">Melalui Consulting, Corporate Training, dan Digital Marketing Implementation yang Terukur.</span>
+              <span className="text-[#6B7280]">Melalui Strategic Consulting, Corporate Training, Digital Marketing, SEO, AI Search Optimization, dan Digital Transformation untuk meningkatkan revenue, efisiensi operasional, serta pertumbuhan bisnis yang terukur.</span>
             </p>
 
             {/* CTA Buttons */}
