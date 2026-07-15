@@ -11,7 +11,7 @@ export default function Portfolio() {
 
   const caseStudies = [
     {
-      logo: '/logos/sma-lab-jkt.png',
+      logo: '/logos-portofolio/sma-lab-jkt.png',
       result: 'Peningkatan Pendaftaran Siswa 200%',
       detail: 'Leads meningkat 250% dalam 6 bulan',
       resultColor: 'text-[#F5821F]',
@@ -25,7 +25,7 @@ export default function Portfolio() {
       bgColor: 'bg-white',
     },
     {
-      logo: '/logos/rs-permata-gunung-putri.png',
+      logo: '/logos-portofolio/rs-permata-gp.png',
       result: '300% Peningkatan Pasien datang',
       detail: 'Leads meningkat 400% dalam 6 bulan',
       resultColor: 'text-[#F5821F]',
