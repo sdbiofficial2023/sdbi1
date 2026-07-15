@@ -99,7 +99,7 @@ export default function Navbar({ className = '', onOpenChange }: NavbarProps) {
               className="relative block w-[200px] md:w-[260px] lg:w-[320px] h-[50px] md:h-[70px] lg:h-[85px] overflow-hidden"
             >
               <Image
-                src="/logos-navbar/logo-sdbi.png"
+                src="/logos-navbar/logo-sdbi-new.png"
                 alt="Sekolah Digital Bisnis Indonesia"
                 fill
                 sizes="(max-width: 768px) 200px, (max-width: 1024px) 260px, 320px"

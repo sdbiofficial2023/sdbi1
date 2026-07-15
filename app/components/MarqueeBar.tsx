@@ -15,15 +15,27 @@ interface MarqueeBarProps {
 
 const defaultItems: MarqueeItem[] = [
   {
-    text: 'Konsultasi Bisnis Gratis',
+    text: 'Free Business Consultation',
     cta: { label: 'Konsultasi Sekarang', href: '#konsultasi' },
   },
   {
-    text: 'Media Social Specialist Academy',
+    text: 'Social Media Specialist Academy',
     cta: { label: 'Lihat Program', href: '#layanan' },
   },
   {
-    text: 'Pembicara',
+    text: 'Corporate Training',
+    cta: { label: 'Hubungi Kami', href: '#hubungi-kami' },
+  },
+  {
+    text: 'Business Speaker',
+    cta: { label: 'Hubungi Kami', href: '#hubungi-kami' },
+  },
+  {
+    text: 'Digital Marketing Workshop',
+    cta: { label: 'Hubungi Kami', href: '#hubungi-kami' },
+  },
+  {
+    text: 'Business Seminar',
     cta: { label: 'Hubungi Kami', href: '#hubungi-kami' },
   },
 ];
