@@ -9,17 +9,17 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sdbi.co.id"),
+  metadataBase: new URL("https://sekolahdigitalbisnis.com"),
   title: "SDBI - Sekolah Digital Bisnis Indonesia | Digital Marketing Agency",
   description:
-    "Revenue Growth & Digital Transformation Partner untuk Perusahaan, Institusi, dan Organisasi di Indonesia.",
+    "Your Strategic Growth & Digital Transformation Partner untuk Perusahaan, Institusi, dan Organisasi di Indonesia.",
   openGraph: {
     title: "SDBI - Sekolah Digital Bisnis Indonesia",
     description:
-      "Revenue Growth & Digital Transformation Partner untuk Perusahaan, Institusi, dan Organisasi di Indonesia.",
-    url: "https://sdbi.co.id",
+      "Your Strategic Growth & Digital Transformation Partner untuk Perusahaan, Institusi, dan Organisasi di Indonesia.",
+    url: "https://sekolahdigitalbisnis.com",
     siteName: "SDBI",
-    images: [{ url: "/hero-images/hero-team.png", width: 1200, height: 630 }],
+    images: [{ url: "/hero-images/hero-slide-1.webp", width: 1200, height: 630 }],
     locale: "id_ID",
     type: "website",
   },
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SDBI - Sekolah Digital Bisnis Indonesia",
     description:
-      "Revenue Growth & Digital Transformation Partner untuk Perusahaan, Institusi, dan Organisasi di Indonesia.",
-    images: ["/hero-images/hero-team.png"],
+      "Your Strategic Growth & Digital Transformation Partner untuk Perusahaan, Institusi, dan Organisasi di Indonesia.",
+    images: ["/hero-images/hero-slide-1.webp"],
   },
 };
 
