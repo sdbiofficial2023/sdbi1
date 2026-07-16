@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 const SLIDES = [
-  '/hero-images/hero-slide-1.jpg',
-  '/hero-images/hero-slide-2.jpg',
-  '/hero-images/hero-slide-3.jpg',
-  '/hero-images/hero-slide-4.jpg',
+  '/hero-images/hero-slide-1.webp',
+  '/hero-images/hero-slide-2.webp',
+  '/hero-images/hero-slide-3.webp',
+  '/hero-images/hero-slide-4.webp',
 ];
 
 const INTERVAL_MS = 4000;

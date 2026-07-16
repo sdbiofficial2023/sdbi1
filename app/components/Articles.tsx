@@ -11,7 +11,7 @@ export default function Articles() {
       title: '5 Tools AI yang Wajib Digunakan Setiap Tim Marketing pada 2025',
       excerpt:
         'Dari otomasi konten hingga analisis kompetitor real-time — inilah alat AI yang sudah digunakan tim marketing perusahaan terkemuka untuk efisiensi dan pertumbuhan.',
-      image: '/articles-content/Website SDBI (3).png',
+      image: '/articles-content/Website SDBI (3).webp',
       icon: '🤖',
     },
     {
@@ -22,7 +22,7 @@ export default function Articles() {
       title: 'Panduan Praktis AI SEO : Cara Muncul di ChatGPT Search dan Google AI Overview',
       excerpt:
         'Strategi step-by-step untuk mengoptimalkan konten Anda agar relevan di era pencarian berbasis AI — bukan hanya Google biasa, tetapi juga Perplexity dan Gemini.',
-      image: '/articles-content/Website SDBI (4).png',
+      image: '/articles-content/Website SDBI (4).webp',
       icon: '🔍',
     },
     {
@@ -33,7 +33,7 @@ export default function Articles() {
       title: 'Dari Awareness ke Revenue: Membangun Funnel Pemasaran yang Benar-Benar Bekerja',
       excerpt:
         'Banyak bisnis membangun funnel yang terlihat lengkap di atas kertas, tetapi tidak menghasilkan konversinya. Inilah letak kesalahannya dan cara memperbaikinya.',
-      image: '/articles-content/Website SDBI (5).png',
+      image: '/articles-content/Website SDBI (5).webp',
       icon: '📈',
     },
   ];

@@ -35,28 +35,28 @@ export default function Transformation() {
       name: 'Bu Dewi',
       role: 'Manager Marketing',
       org: 'RS Permata Gunung Putri',
-      thumbnail: '/thumbnails-transformation/1.png',
+      thumbnail: '/thumbnails-transformation/1.webp',
       youtubeId: 'uPoc4hfkJYA',
     },
     {
       name: 'Kak Rendi',
       role: 'Tim Troopers BPJS',
       org: 'BPJS Ketenagakerjaan',
-      thumbnail: '/thumbnails-transformation/2.png',
+      thumbnail: '/thumbnails-transformation/2.webp',
       youtubeId: 'oPQC7VS6tC0',
     },
     {
       name: 'Kak Eka',
       role: 'Tim Digital Marketing',
       org: 'Digital Executive | Sinarmas Land',
-      thumbnail: '/thumbnails-transformation/3.png',
+      thumbnail: '/thumbnails-transformation/3.webp',
       youtubeId: '7JDA2oJ_CQc',
     },
     {
       name: 'Dokter-dokter',
       role: 'Visual & UI/UX Design',
       org: '| UI/UX Designer | RS Permata',
-      thumbnail: '/thumbnails-transformation/4.png',
+      thumbnail: '/thumbnails-transformation/4.webp',
       youtubeId: 'jzSsX9zFAJU',
     },
     // Thumbnails 5–20
@@ -64,112 +64,112 @@ export default function Transformation() {
       name: 'Cut Lisna',
       role: '',
       org: 'PLN UP 3 BANDA ACEH',
-      thumbnail: '/thumbnails-transformation/5.png',
+      thumbnail: '/thumbnails-transformation/5.webp',
       youtubeId: 'oPQC7VS6tC0',
     },
     {
       name: 'Andi Rizkullah',
       role: '',
       org: 'Allia Tour dan Hotel Ibis',
-      thumbnail: '/thumbnails-transformation/6.png',
+      thumbnail: '/thumbnails-transformation/6.webp',
       youtubeId: 'IpvceBpqfLg',
     },
     {
       name: 'Wahyu Haryadi',
       role: '',
       org: 'LSP MIGAS',
-      thumbnail: '/thumbnails-transformation/7.png',
+      thumbnail: '/thumbnails-transformation/7.webp',
       youtubeId: 'oEfK41Z4qIY',
     },
     {
       name: 'Rossiman',
       role: '',
       org: 'Lab School Cibubur',
-      thumbnail: '/thumbnails-transformation/8.png',
+      thumbnail: '/thumbnails-transformation/8.webp',
       youtubeId: 'NR_DyCpA6nM',
     },
     {
       name: 'Ibu Mira Restyawati',
       role: '',
       org: 'RS Permata Gunung Putri',
-      thumbnail: '/thumbnails-transformation/9.png',
+      thumbnail: '/thumbnails-transformation/9.webp',
       youtubeId: 'Ay-Z8j63u3w',
     },
     {
       name: 'Bapak Deden E Ariffan',
       role: 'Kepala Pengembang',
       org: 'Labschool Cibubur',
-      thumbnail: '/thumbnails-transformation/10.png',
+      thumbnail: '/thumbnails-transformation/10.webp',
       youtubeId: 'VpRBG1k9-IA',
     },
     {
       name: 'Gilang Gustiardi',
       role: 'Digital Marketing',
       org: 'Nashta Global Utama',
-      thumbnail: '/thumbnails-transformation/11.png',
+      thumbnail: '/thumbnails-transformation/11.webp',
       youtubeId: 'AVXE9dQqPL0',
     },
     {
       name: 'Redy Indra Wijaya',
       role: '',
       org: 'BPJS Ketenagakerjaan',
-      thumbnail: '/thumbnails-transformation/12.png',
+      thumbnail: '/thumbnails-transformation/12.webp',
       youtubeId: 'GnpEP3F-Zas',
     },
     {
       name: 'Ibu Rina',
       role: 'Owner',
       org: 'Orien Beauty',
-      thumbnail: '/thumbnails-transformation/13.png',
+      thumbnail: '/thumbnails-transformation/13.webp',
       youtubeId: '8-TTtTO9sBI',
     },
     {
       name: 'Pak Kusmanto',
       role: '',
       org: 'Koperasi Ababil Solution',
-      thumbnail: '/thumbnails-transformation/14.png',
+      thumbnail: '/thumbnails-transformation/14.webp',
       youtubeId: '3gUoPl1DF2A',
     },
     {
       name: 'Putri Anitasari',
       role: '',
       org: 'Pevesindo',
-      thumbnail: '/thumbnails-transformation/15.png',
+      thumbnail: '/thumbnails-transformation/15.webp',
       youtubeId: 'lelRVSo8DwE',
     },
     {
       name: 'Kak Muslim',
       role: '',
       org: 'Laz Rabbani',
-      thumbnail: '/thumbnails-transformation/16.png',
+      thumbnail: '/thumbnails-transformation/16.webp',
       youtubeId: 'ynBaBmA2Tf8',
     },
     {
       name: 'Ibu Isni',
       role: '',
       org: 'Bollen Isni',
-      thumbnail: '/thumbnails-transformation/17.png',
+      thumbnail: '/thumbnails-transformation/17.webp',
       youtubeId: '_gsytAcoEGM',
     },
     {
       name: 'Kak Ismi',
       role: '',
       org: 'PEVESINDO',
-      thumbnail: '/thumbnails-transformation/18.png',
+      thumbnail: '/thumbnails-transformation/18.webp',
       youtubeId: 'Rfw5_M-4rxw',
     },
     {
       name: 'Muhammad Al-Jundi',
       role: '',
       org: 'PEVESINDO',
-      thumbnail: '/thumbnails-transformation/19.png',
+      thumbnail: '/thumbnails-transformation/19.webp',
       youtubeId: 'mCJer02WGpU',
     },
     {
       name: 'Ruslan',
       role: '',
       org: 'Workshop Digital Bisnis Bersama Brand owner UMKM',
-      thumbnail: '/thumbnails-transformation/20.png',
+      thumbnail: '/thumbnails-transformation/20.webp',
       youtubeId: 'uEZlEqeRNZY',
     },
   ];
@@ -217,7 +217,7 @@ export default function Transformation() {
       {/* Background Image - only covers top portion */}
       <div className="absolute inset-x-0 top-0 h-[78%] md:h-[65%] z-0">
         <Image
-          src="/bg-transformation/Website SDBI (1).png"
+          src="/bg-transformation/Website SDBI (1).webp"
           alt="Background pattern"
           fill
           sizes="100vw"
@@ -273,7 +273,7 @@ export default function Transformation() {
             {/* Coach Yoso Image - stacked below text on mobile; on md+ fills the space below the quote down to the thumbnails */}
             <div className="relative w-[56%] aspect-[1366/1614] mx-auto mt-4 md:mx-0 md:absolute md:mt-0 md:left-[3.5rem] lg:left-[1.5rem] md:top-[6rem] lg:top-[6.5rem] md:bottom-[3rem] lg:bottom-0 md:w-[40%] lg:w-[36%] md:aspect-auto z-[5]">
               <Image
-                src="/images-transformation/image.png"
+                src="/images-transformation/image.webp"
                 alt="Coach Yoso - High Ticket Closing"
                 fill
                 className="object-contain object-bottom"

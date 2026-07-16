@@ -4,17 +4,17 @@ import Image from 'next/image';
 
 export default function TrustedBy() {
   const partners = [
-    { name: 'BKKBN', logo: '/logos-trustedby/bkkbn-logo.png' },
-    { name: 'SMA Labschool Jakarta', logo: '/logos-trustedby/sma-lab-jkt.png' },
-    { name: 'BPJS Ketenagakerjaan', logo: '/logos-trustedby/bpjs-ketenagakerjaan.png' },
-    { name: 'BPJS Kesehatan', logo: '/logos-trustedby/bpjs-kesehatan-logo.png' },
-    { name: 'PLN Icon Plus', logo: '/logos-trustedby/pln-logo.png' },
-    { name: 'TBINA', logo: '/logos-trustedby/tbina.png' },
-    { name: 'Institut Teknologi Nasional', logo: '/logos-trustedby/itenas.png' },
-    { name: 'Universitas Gadjah Mada', logo: '/logos-trustedby/ugm-logo.png' },
-    { name: 'RS Permata Gunung Putri', logo: '/logos-trustedby/rs-permata-gunung-putri.png' },
-    { name: 'Telkom University', logo: '/logos-trustedby/telkom-university.png' },
-    { name: 'Telkomsel', logo: '/logos-trustedby/telkomsel.png' },
+    { name: 'BKKBN', logo: '/logos-trustedby/bkkbn-logo.webp' },
+    { name: 'SMA Labschool Jakarta', logo: '/logos-trustedby/sma-lab-jkt.webp' },
+    { name: 'BPJS Ketenagakerjaan', logo: '/logos-trustedby/bpjs-ketenagakerjaan.webp' },
+    { name: 'BPJS Kesehatan', logo: '/logos-trustedby/bpjs-kesehatan-logo.webp' },
+    { name: 'PLN Icon Plus', logo: '/logos-trustedby/pln-logo.webp' },
+    { name: 'TBINA', logo: '/logos-trustedby/tbina.webp' },
+    { name: 'Institut Teknologi Nasional', logo: '/logos-trustedby/itenas.webp' },
+    { name: 'Universitas Gadjah Mada', logo: '/logos-trustedby/ugm-logo.webp' },
+    { name: 'RS Permata Gunung Putri', logo: '/logos-trustedby/rs-permata-gunung-putri.webp' },
+    { name: 'Telkom University', logo: '/logos-trustedby/telkom-university.webp' },
+    { name: 'Telkomsel', logo: '/logos-trustedby/telkomsel.webp' },
   ];
 
   const row1 = partners.slice(0, 6);

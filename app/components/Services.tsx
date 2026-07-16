@@ -5,7 +5,7 @@ export default function Services() {
   const services = [
     {
       title: 'Digital Marketing Management',
-      image: '/images-layanan/digital-marketing.png',
+      image: '/images-layanan/digital-marketing.webp',
       gradient: 'from-blue-600 to-blue-800',
       icon: '📊',
       tags: ['Strategy & Execution', 'Lead Generation'],
@@ -14,7 +14,7 @@ export default function Services() {
     },
     {
       title: 'SEO & AI Search Optimization',
-      image: '/images-layanan/seo-ai.png',
+      image: '/images-layanan/seo-ai.webp',
       gradient: 'from-cyan-500 to-blue-600',
       icon: '🔍',
       tags: ['Search Engine Optimization', 'AI Search'],
@@ -23,7 +23,7 @@ export default function Services() {
     },
     {
       title: 'Digital Ads Management',
-      image: '/images-layanan/digital-ads.png',
+      image: '/images-layanan/digital-ads.webp',
       gradient: 'from-red-500 to-orange-600',
       icon: '📢',
       tags: ['Meta Ads', 'TikTok Ads', 'Google Ads'],
@@ -32,7 +32,7 @@ export default function Services() {
     },
     {
       title: 'Corporate Training & Workshop (MSA)',
-      image: '/images-layanan/training-corporate.jpeg',
+      image: '/images-layanan/training-corporate.webp',
       gradient: 'from-indigo-500 to-purple-600',
       icon: '🎓',
       tags: ['In-House Training', 'Online | Offline', 'Sertifikasi'],
@@ -41,7 +41,7 @@ export default function Services() {
     },
     {
       title: 'Business & Digital Consulting',
-      image: '/images-layanan/business-digital.png',
+      image: '/images-layanan/business-digital.webp',
       gradient: 'from-emerald-500 to-teal-600',
       icon: '💼',
       tags: ['Private Consulting', 'Project Based'],
@@ -50,7 +50,7 @@ export default function Services() {
     },
     {
       title: 'Website Development',
-      image: '/images-layanan/website-development.png',
+      image: '/images-layanan/website-development.webp',
       gradient: 'from-violet-500 to-indigo-600',
       icon: '💻',
       tags: ['Custom Development', 'Mobile Friendly'],
@@ -59,7 +59,7 @@ export default function Services() {
     },
     {
       title: 'Speaker & Corporate Event',
-      image: '/images-layanan/speaker.jpeg',
+      image: '/images-layanan/speaker.webp',
       gradient: 'from-amber-500 to-orange-600',
       icon: '🎤',
       tags: ['Corporate Event', 'Online & Offline'],
@@ -68,7 +68,7 @@ export default function Services() {
     },
     {
       title: 'Program Masa Persiapan Pensiun (MPP)',
-      image: '/images-layanan/program-masa.png',
+      image: '/images-layanan/program-masa.webp',
       gradient: 'from-rose-500 to-pink-600',
       icon: '🏖️',
       tags: ['Business Learning Journey', 'Business Visit'],

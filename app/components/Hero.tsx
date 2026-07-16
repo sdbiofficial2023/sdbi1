@@ -33,7 +33,7 @@ export default function Hero() {
       id="beranda"
       className="relative pt-[70px] md:pt-[100px] pb-12 md:pb-20 overflow-hidden"
       style={{
-        backgroundImage: `url('/bg-hero/background-hero.png')`,
+        backgroundImage: `url('/bg-hero/background-hero.webp')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

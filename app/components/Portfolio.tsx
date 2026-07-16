@@ -11,21 +11,21 @@ export default function Portfolio() {
 
   const caseStudies = [
     {
-      logo: '/logos-portofolio/sma-lab-jkt.png',
+      logo: '/logos-portofolio/sma-lab-jkt.webp',
       result: 'Peningkatan Pendaftaran Siswa 200%',
       detail: 'Leads meningkat 250% dalam 6 bulan',
       resultColor: 'text-[#F5821F]',
       bgColor: 'bg-white',
     },
     {
-      logo: '/logos-portofolio/logopln-portofolio.png',
+      logo: '/logos-portofolio/logopln-portofolio.webp',
       result: 'Training 1.000+ peserta',
       detail: 'Peningkatan kompetensi dan adopsi digital signifikan',
       resultColor: 'text-[#0A1E3F]',
       bgColor: 'bg-white',
     },
     {
-      logo: '/logos-portofolio/rs-permata-gp.png',
+      logo: '/logos-portofolio/rs-permata-gp.webp',
       result: '300% Peningkatan Pasien datang',
       detail: 'Leads meningkat 400% dalam 6 bulan',
       resultColor: 'text-[#F5821F]',

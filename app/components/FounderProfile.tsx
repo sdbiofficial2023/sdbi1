@@ -24,7 +24,7 @@ export default function FounderProfile() {
           {/* Left - Photo (no card, directly on background) */}
           <div className="md:col-span-5">
             <Image
-              src="/images-founder-profile/coach-yoso-lukito.png"
+              src="/images-founder-profile/coach-yoso-lukito.webp"
               alt="Coach Yoso Lukito - Founder & CEO SDBI"
               width={700}
               height={500}

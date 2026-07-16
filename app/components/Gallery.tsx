@@ -25,32 +25,32 @@ export default function Gallery() {
   const galleryItems = [
     {
       title: 'Kurasi Bisnis Digital untuk UMKM',
-      image: '/images-gallery/image.jpeg',
+      image: '/images-gallery/image.webp',
       description: 'Workshop Sekolah Digital Bisnis Indonesia bertema "Kurasi Bisnis Digital: Agar Produk Layak Dipilih & Dibeli Konsumen", diikuti oleh 100 UMKM dari wilayah Jabodetabek.',
     },
     {
       title: 'Corporate Training Website SEO & AI',
-      image: '/images-gallery/Website-SDBI-2.png',
+      image: '/images-gallery/Website-SDBI-2.webp',
       description: 'Pelatihan optimasi website berbasis SEO dan AI Search untuk tim Labschool Cibubur bersama Tim IT, Tim Creative dan Tim SEO internal Labschool.',
     },
     {
       title: 'Pemberdayaan UMKM Bersama PT PLN (Persero)',
-      image: '/images-gallery/Website-SDBI-3.png',
+      image: '/images-gallery/Website-SDBI-3.webp',
       description: 'Melalui Program TJSL Museum Listrik dan Energi Baru (MLEB), Sekolah Digital Bisnis Indonesia membekali UMKM binaan PLN dengan strategi digital marketing, AI Search, dan transformasi digital untuk meningkatkan daya saing bisnis.',
     },
     {
       title: 'Kolaborasi PT PLN (Persero) dan SDBI di Aceh',
-      image: '/images-gallery/Website-SDBI-4.png',
+      image: '/images-gallery/Website-SDBI-4.webp',
       description: 'Program kolaborasi PT PLN (Persero) dan Sekolah Digital Bisnis Indonesia (SDBI) yang diikuti oleh lebih 100 Manager dan Pimpinan Cabang PLN di Aceh untuk memperkuat kompetensi digital marketing serta mendukung percepatan transformasi digital.',
     },
     {
       title: 'Digital Marketing KOL & SEO Training',
-      image: '/images-gallery/Website-SDBI-5.png',
+      image: '/images-gallery/Website-SDBI-5.webp',
       description: 'Kolaborasi Labschool Cibubur dan Sekolah Digital Bisnis Indonesia. Pelatihan digital marketing yang membahas strategi Key Opinion Leader (KOL), Search Engine Optimization (SEO), dan pengembangan brand digital untuk meningkatkan visibilitas, kredibilitas, serta performa pemasaran di era digital.',
     },
     {
       title: 'Kolaborasi BKKBN bersama SDBI',
-      image: '/images-gallery/Website-SDBI-6.png',
+      image: '/images-gallery/Website-SDBI-6.webp',
       description: 'Program persiapan kurasi produk UPPKA untuk meningkatkan kualitas, inovasi, promosi, dan daya saing usaha melalui penguatan strategi bisnis di era ekosistem digital. Kegiatan ini diikuti oleh lebih dari 5.000 UMKM dari seluruh Indonesia dan diselenggarakan secara hybrid.',
     },
   ];

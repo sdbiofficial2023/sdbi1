@@ -27,7 +27,7 @@ export default function Footer() {
           {/* Column 1 - Logo & Description */}
           <div className="md:col-span-1">
             <Image
-              src="/logos-footer/logo-sdbi-footer.png"
+              src="/logos-footer/logo-sdbi-footer.webp"
               alt="Sekolah Digital Bisnis Indonesia"
               width={250}
               height={100}

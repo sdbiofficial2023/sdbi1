@@ -36,7 +36,7 @@ export default function MediaCoverage() {
       title: 'Kolaborasi Yoso Lukito Sekolah Digital Bisnis Indonesia (SDBI) Bersama KPMI: Strategi Pemasaran Digital untuk Para Pebisnis',
       quote: '"Kami berusaha memberikan wawasan yang aplikatif dan mudah dipahami, sehingga para Muslimat dapat meraih peluang bisnis digital yang lebih besar di era kompetisi global ini."',
       gradient: 'from-amber-500 to-orange-700',
-      image: '/images-mediacoverage/IMG-20241221-WA0059.jpg',
+      image: '/images-mediacoverage/IMG-20241221-WA0059.webp',
       link: 'https://wartaekonomi.co.id/read553732/kolaborasi-yoso-lukito-sekolah-digital-bisnis-indonesia-sdbi-bersama-kpmi-strategi-pemasaran-digital-untuk-para-pebisnis',
     },
   ];

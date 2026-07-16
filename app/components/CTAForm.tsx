@@ -132,7 +132,7 @@ export default function CTAForm() {
               {/* People collage image */}
               <div className="relative w-full mt-2">
                 <Image
-                  src="/ctaform-image/Website SDBI (3).png"
+                  src="/ctaform-image/Website SDBI (3).webp"
                   alt="Alumni Sekolah Digital Bisnis Indonesia"
                   width={600}
                   height={400}
