@@ -230,7 +230,7 @@ export default function Testimonials() {
           <h2 className="text-2xl md:text-4xl font-bold text-[#0A1E3F]">
             Apa Kata Klien dan Peserta Tentang
             <br />
-            <span className="border-b-4 border-[#D4A843] pb-1">Sekolah Digital Bisnis Indonesia</span>
+            <span className="border-b-4 border-[#D4A843] pb">Sekolah Digital Bisnis Indonesia</span>
           </h2>
         </div>
 
