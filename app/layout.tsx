@@ -43,6 +43,7 @@ export default function RootLayout({
     <html
       lang="id"
       className={`${poppins.variable} font-sans h-full antialiased scroll-smooth`}
+      data-scroll-behavior="smooth"
     >
       <body className="min-h-full flex flex-col">
         {children}

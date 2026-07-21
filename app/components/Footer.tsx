@@ -82,7 +82,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {layanan.map((item, index) => (
                 <li key={index}>
-                  <Link href="#layanan" className="text-gray-300 hover:text-[#F5821F] transition-colors text-sm">
+                  <Link href="/#layanan" className="text-gray-300 hover:text-[#F5821F] transition-colors text-sm">
                     {item}
                   </Link>
                 </li>

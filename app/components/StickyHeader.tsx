@@ -41,17 +41,37 @@ export default function StickyHeader() {
     window.scrollTo({ top: Math.max(top, 0), behavior });
   }, []);
 
-  // Intercept clicks on any #hash link across the site so the fixed header
-  // is accounted for, instead of relying on the framework's default scroll.
+  // Intercept clicks on any #hash link across the site (including "/#id"
+  // links used to jump home from other pages) so the fixed header is
+  // accounted for, instead of relying on the framework's default scroll.
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      const anchor = (e.target as HTMLElement)?.closest?.('a[href^="#"]');
+      const anchor = (e.target as HTMLElement)?.closest?.('a[href*="#"]');
       if (!anchor) return;
-      const id = anchor.getAttribute('href')?.slice(1);
-      if (!id || !ANCHOR_IDS.includes(id) || !document.getElementById(id)) return;
-      e.preventDefault();
-      history.pushState(null, '', `#${id}`);
-      scrollToId(id);
+      const href = anchor.getAttribute('href') || '';
+      const hashIndex = href.indexOf('#');
+      if (hashIndex === -1) return;
+      const path = href.slice(0, hashIndex);
+      const id = href.slice(hashIndex + 1);
+      if (path && path !== '/' && path !== window.location.pathname) return;
+      if (!id || !ANCHOR_IDS.includes(id)) return;
+
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        history.pushState(null, '', `#${id}`);
+        scrollToId(id);
+        return;
+      }
+
+      // Target section isn't on this page (e.g. clicking "Beranda" from
+      // /blog). Next's Link mangles the URL into a double hash ("/#beranda#beranda")
+      // when a hash-only href also crosses routes, so force a plain
+      // navigation instead — the destination page's own mount effect
+      // below picks up the clean hash and applies the header offset.
+      if (window.location.pathname !== '/') {
+        e.preventDefault();
+        window.location.href = `/#${id}`;
+      }
     };
     document.addEventListener('click', handleClick, true);
     return () => document.removeEventListener('click', handleClick, true);

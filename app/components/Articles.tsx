@@ -1,42 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { getLatestArticles, formatTanggal } from '../lib/articles';
 
 export default function Articles() {
-  const articles = [
-    {
-      category: 'AI UNTUK BISNIS',
-      categoryColor: 'bg-[#0A1E3F]',
-      date: '10 JUNI 2025',
-      readTime: '8 MENIT BACA',
-      title: '5 Tools AI yang Wajib Digunakan Setiap Tim Marketing pada 2025',
-      excerpt:
-        'Dari otomasi konten hingga analisis kompetitor real-time — inilah alat AI yang sudah digunakan tim marketing perusahaan terkemuka untuk efisiensi dan pertumbuhan.',
-      image: '/articles-content/Website SDBI (3).webp',
-      icon: '🤖',
-    },
-    {
-      category: 'SEO & AI SEO',
-      categoryColor: 'bg-[#25D366]',
-      date: '5 JUNI 2025',
-      readTime: '6 MENIT BACA',
-      title: 'Panduan Praktis AI SEO : Cara Muncul di ChatGPT Search dan Google AI Overview',
-      excerpt:
-        'Strategi step-by-step untuk mengoptimalkan konten Anda agar relevan di era pencarian berbasis AI — bukan hanya Google biasa, tetapi juga Perplexity dan Gemini.',
-      image: '/articles-content/Website SDBI (4).webp',
-      icon: '🔍',
-    },
-    {
-      category: 'BUSINESS GROWTH',
-      categoryColor: 'bg-[#F5821F]',
-      date: '28 MEI 2025',
-      readTime: '7 MENIT BACA',
-      title: 'Dari Awareness ke Revenue: Membangun Funnel Pemasaran yang Benar-Benar Bekerja',
-      excerpt:
-        'Banyak bisnis membangun funnel yang terlihat lengkap di atas kertas, tetapi tidak menghasilkan konversinya. Inilah letak kesalahannya dan cara memperbaikinya.',
-      image: '/articles-content/Website SDBI (5).webp',
-      icon: '📈',
-    },
-  ];
+  const articles = getLatestArticles(3);
 
   return (
     <section className="bg-white py-16 md:py-24" id="artikel">
@@ -50,54 +17,53 @@ export default function Articles() {
 
         {/* Article Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {articles.map((article, index) => (
-            <article
-              key={index}
-              className="group cursor-pointer"
-            >
-              {/* Image */}
-              <div className="bg-gray-200 h-52 rounded-2xl mb-4 relative overflow-hidden flex flex-col items-center justify-center border border-gray-300">
-                <Image
-                  src={article.image}
-                  alt={article.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+          {articles.map((article) => (
+            <Link key={article.slug} href={`/${article.slug}`} className="group cursor-pointer h-full">
+              <article className="h-full flex flex-col">
+                {/* Image */}
+                <div className="bg-gray-200 h-52 rounded-2xl mb-4 relative overflow-hidden flex flex-col items-center justify-center border border-gray-300">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
 
-                {/* Category badge */}
-                <span className={`absolute top-4 left-4 ${article.categoryColor} text-white text-xs font-semibold px-3 py-1 rounded-full z-10 shadow-sm`}>
-                  {article.category}
+                  {/* Category badge */}
+                  <span className="absolute top-4 left-4 bg-[#0A1E3F] text-white text-xs font-semibold px-3 py-1 rounded-full z-10 shadow-sm">
+                    {article.category.toUpperCase()}
+                  </span>
+                </div>
+
+                {/* Meta */}
+                <p className="text-xs text-[#6B7280] uppercase tracking-wider mb-2">
+                  {formatTanggal(article.date)} - {article.readTime}
+                </p>
+
+                {/* Title */}
+                <h3 className="font-bold text-base text-[#0A1E3F] mb-2 leading-snug line-clamp-2 min-h-[2lh] group-hover:text-[#F5821F] transition-colors">
+                  {article.title}
+                </h3>
+
+                {/* Excerpt */}
+                <p className="text-sm text-[#6B7280] leading-relaxed mb-3 line-clamp-3">
+                  {article.excerpt}
+                </p>
+
+                {/* Read more */}
+                <span className="text-[#F5821F] font-semibold text-sm group-hover:underline mt-auto">
+                  Baca Artikel
                 </span>
-              </div>
-
-              {/* Meta */}
-              <p className="text-xs text-[#6B7280] uppercase tracking-wider mb-2">
-                {article.date} - {article.readTime}
-              </p>
-
-              {/* Title */}
-              <h3 className="font-bold text-base text-[#0A1E3F] mb-2 leading-snug group-hover:text-[#F5821F] transition-colors">
-                {article.title}
-              </h3>
-
-              {/* Excerpt */}
-              <p className="text-sm text-[#6B7280] leading-relaxed mb-3">
-                {article.excerpt}
-              </p>
-
-              {/* Read more */}
-              <Link href="#" className="text-[#F5821F] font-semibold text-sm hover:underline">
-                Baca Artikel
-              </Link>
-            </article>
+              </article>
+            </Link>
           ))}
         </div>
 
         {/* CTA */}
         <div className="text-center mt-12">
           <Link
-            href="#"
+            href="/blog"
             className="inline-block bg-[#FFD54F] border-2 border-[#D4A843] text-[#0A1E3F] px-8 py-3.5 rounded-xl font-bold hover:bg-[#F5821F] hover:text-white hover:border-[#F5821F] transition-all duration-300 text-sm shadow-sm"
           >
             Baca Artikel Lainnya
