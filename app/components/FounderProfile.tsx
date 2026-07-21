@@ -62,7 +62,7 @@ export default function FounderProfile() {
             </p>
 
             <Link
-              href="#konsultasi"
+              href="/profil-yoso-lukito"
               className="inline-block bg-[#0A1E3F] text-white px-8 py-3.5 rounded-xl font-medium hover:bg-[#0A1E3F]/90 transition-colors text-sm"
             >
               Cek Profile Lengkap & Portofolio
