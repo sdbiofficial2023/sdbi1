@@ -59,7 +59,7 @@ const praktisiBisnis = [
 ];
 
 const portofolio = Array.from({ length: 27 }, (_, i) => ({
-  logo: `/portofolio/logo-${String(i + 1).padStart(2, "0")}.png`,
+  logo: `/portofolio/logo-${String(i + 1).padStart(2, "0")}.webp`,
   label: `Klien & Mitra ${i + 1}`,
 }));
 
