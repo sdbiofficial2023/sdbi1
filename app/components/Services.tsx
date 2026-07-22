@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function Services() {
+interface ServicesProps {
+  showHeading?: boolean;
+  showMoreButton?: boolean;
+}
+
+export default function Services({ showHeading = true, showMoreButton = true }: ServicesProps) {
   const services = [
     {
       title: 'Digital Marketing Management',
@@ -81,11 +86,13 @@ export default function Services() {
     <section className="bg-gray-50 py-16 md:py-24" id="layanan">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-4xl font-bold text-[#0A1E3F]">
-            Layanan <span className="highlight-yellow">Sekolah Digital Bisnis Indonesia</span>
-          </h2>
-        </div>
+        {showHeading && (
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-4xl font-bold text-[#0A1E3F]">
+              Layanan <span className="highlight-yellow">Sekolah Digital Bisnis Indonesia</span>
+            </h2>
+          </div>
+        )}
 
         {/* Service Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -147,14 +154,16 @@ export default function Services() {
         </div>
 
         {/* CTA Button */}
-        <div className="text-center mt-12">
-          <Link
-            href="#hubungi-kami"
-            className="inline-block bg-[#0A1E3F] text-white px-8 py-3.5 rounded-xl font-bold hover:bg-[#0A1E3F]/90 transition-all duration-300 text-sm"
-          >
-            Hubungi kami untuk info lainnya
-          </Link>
-        </div>
+        {showMoreButton && (
+          <div className="text-center mt-12">
+            <Link
+              href="/layanan"
+              className="inline-block bg-[#0A1E3F] text-white px-8 py-3.5 rounded-xl font-bold hover:bg-[#0A1E3F]/90 transition-all duration-300 text-sm"
+            >
+              Lihat Layanan Lainnya
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

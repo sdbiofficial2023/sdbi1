@@ -20,23 +20,23 @@ const defaultItems: MarqueeItem[] = [
   },
   {
     text: 'Social Media Specialist Academy',
-    cta: { label: 'Lihat Program', href: '#layanan' },
+    cta: { label: 'Lihat Program', href: '/layanan' },
   },
   {
     text: 'Corporate Training',
-    cta: { label: 'Hubungi Kami', href: '#hubungi-kami' },
+    cta: { label: 'Hubungi Kami', href: '/hubungi-kami' },
   },
   {
     text: 'Business Speaker',
-    cta: { label: 'Hubungi Kami', href: '#hubungi-kami' },
+    cta: { label: 'Hubungi Kami', href: '/hubungi-kami' },
   },
   {
     text: 'Digital Marketing Workshop',
-    cta: { label: 'Hubungi Kami', href: '#hubungi-kami' },
+    cta: { label: 'Hubungi Kami', href: '/hubungi-kami' },
   },
   {
     text: 'Business Seminar',
-    cta: { label: 'Hubungi Kami', href: '#hubungi-kami' },
+    cta: { label: 'Hubungi Kami', href: '/hubungi-kami' },
   },
 ];
 

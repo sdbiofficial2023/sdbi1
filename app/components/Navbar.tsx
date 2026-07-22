@@ -19,10 +19,10 @@ export default function Navbar({ className = '', onOpenChange }: NavbarProps) {
 
   const menuItems = [
     { label: 'Beranda', href: '/#beranda' },
-    { label: 'Layanan', href: '/#layanan' },
+    { label: 'Layanan', href: '/layanan' },
     { label: 'Portofolio', href: '/profil-yoso-lukito' },
     { label: 'Artikel', href: '/blog' },
-    { label: 'Hubungi Kami', href: '/#hubungi-kami' },
+    { label: 'Hubungi Kami', href: '/hubungi-kami' },
   ];
 
   const toggleMobile = (next: boolean) => {
