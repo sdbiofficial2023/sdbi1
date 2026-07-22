@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode, type CSSProperties } from "react";
+import { useEffect, useRef, type ReactNode, type CSSProperties, type JSX } from "react";
 
 type AnimationType =
   | "fade-in-up"
