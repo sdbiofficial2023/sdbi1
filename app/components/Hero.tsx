@@ -121,12 +121,12 @@ export default function Hero() {
               className="text-[1.75rem] md:text-3xl lg:text-4xl xl:text-[2.5rem] font-bold leading-[1.15] tracking-tight reveal"
               style={{ animationDelay: '0.15s' }}
             >
-              <span className="text-[#F5821F] whitespace-nowrap">Your Strategic Growth</span>{' '}
+              <span className="text-[#F5821F] md:whitespace-nowrap">Your Strategic Growth</span>{' '}
               <span className="text-[#0A1E3F]">&</span>
               <br />
-              <span className="text-[#0A1E3F] whitespace-nowrap">Digital Transformation</span>
+              <span className="text-[#0A1E3F] md:whitespace-nowrap">Digital Transformation</span>
               <br />
-              <span className="text-[#0A1E3F] whitespace-nowrap">Partner</span>
+              <span className="text-[#0A1E3F] md:whitespace-nowrap">Partner</span>
             </h1>
 
             {/* Subheadline */}

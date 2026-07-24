@@ -12,7 +12,7 @@ export type Article = {
   readTime: string;
 };
 
-export const articles: Article[] = [...(articlesData as Article[])].sort(
+export const articles: Article[] = [...(articlesData.articles as Article[])].sort(
   (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
 );
 

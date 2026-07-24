@@ -19,7 +19,7 @@ export default function FounderProfile() {
   ];
 
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-16 md:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-12 gap-6 lg:gap-10 items-center">
           {/* Left - Photo (no card, directly on background) */}
